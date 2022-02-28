@@ -1,5 +1,5 @@
-import React from 'react';
-import ReactLogo from '../UI/ReactLogo';
+import Button from '../UI/Button/Button';
+import ReactLogo from '../UI/ReactLogo/ReactLogo';
 import './App.css';
 
 function App() {
@@ -7,6 +7,10 @@ function App() {
     <div className="App">
       <header className="App-header">
         <ReactLogo />
+        <Button title="Panel produktów"/>
+        <Button title="Panel administracyjny"/>
+        <Button title="Ustawienia"/>
+        <Button title="Pomoc"/>
       </header>
     </div>
   );
