@@ -1,18 +1,28 @@
-import Button from '../UI/Button/Button';
 import ReactLogo from '../UI/ReactLogo/ReactLogo';
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Route,
+} from 'react-router-dom';
+import MainPage from './MainPage/MainPage';
+import SalesArea from './SalesArea/SalesArea';
+
+export enum APP_PAGE {
+  HOME = '/',
+  HELP = '/help',
+  MAINTENANCE = '/maintenance',
+  STATISTICS = '/statistics',
+  SALES = '/sales',
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <ReactLogo />
-        <Button title="Panel produktów"/>
-        <Button title="Panel administracyjny"/>
-        <Button title="Ustawienia"/>
-        <Button title="Pomoc"/>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Route exact path={APP_PAGE.HOME} component={MainPage} />
+        <Route path={APP_PAGE.SALES} component={SalesArea} />
+      </div>
+    </Router>
   );
 }
 

@@ -5,4 +5,5 @@ export const ButtonWrapper = styled.div`
   border: 1px solid #212121;
   margin: 0.25rem;
   cursor: pointer;
+  color: #61dafb;
 `;
