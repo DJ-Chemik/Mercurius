@@ -2,12 +2,12 @@ import Button from "../../UI/Button/Button"
 import ReactLogo from "../../UI/ReactLogo/ReactLogo"
 import RouteLink from "../../UI/RouteLink/RouteLink.styled"
 import { APP_PAGE } from "../App"
-import Header from "../../UI/Header/header"
+import { MainPageStyled } from "../../UI/Header/MainPageStyled"
 
 
 const MainPage = () => {
   return (
-    <Header >
+    <MainPageStyled >
       <header>
         <ReactLogo />
       </header>
@@ -18,7 +18,7 @@ const MainPage = () => {
       <Button title="Panel administracyjny" />
       <Button title="Statystyki" />
       <Button title="Pomoc" />
-    </Header>
+    </MainPageStyled>
   )
 }
 
