@@ -2,7 +2,7 @@ import Button from "../../UI/Button/Button"
 import ReactLogo from "../../UI/ReactLogo/ReactLogo"
 import RouteLink from "../../UI/RouteLink/RouteLink.styled"
 import { APP_PAGE } from "../App"
-import { MainPageStyled } from "./MainPageStyled"
+import { MainPageStyled } from "./MainPage.styled"
 
 
 const MainPage = () => {
