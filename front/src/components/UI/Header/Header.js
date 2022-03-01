@@ -1,5 +1,6 @@
 import React from "react";
 import logo from '../../../assets/logo.svg';
+import ReactLogo from "../../UI/ReactLogo/ReactLogo"
 import './HeaderStyle.css';
 
 
@@ -8,6 +9,8 @@ const Header = () => {
     <div className="main-panel">
       <div className="panel-element">
         <div className="panel-center">
+        <div className="panel-image-left">
+        </div>
           <img src={logo} alt="logo" className="panel-image-left"/>
         </div>
       </div>

@@ -7,16 +7,15 @@ import { APP_PAGE } from "../App"
 const MainPage = () => {
   return (
     <div>
-      <Header></Header>
-      <header className="App-header">
-        <ReactLogo />
+      <Header/>
+      <div className="App-header">
         <RouteLink to={APP_PAGE.SALES}>
           <Button title="Panel sprzedaży" />
         </RouteLink>
         <Button title="Panel administracyjny" />
         <Button title="Statystyki" />
         <Button title="Pomoc" />
-      </header>
+      </div>
     </div>
   )
 }
