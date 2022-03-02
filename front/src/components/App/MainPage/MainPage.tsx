@@ -14,7 +14,6 @@ const MainPage = () => {
         <RouteLink to={APP_PAGE.MAINTENANCE}>
           <Button title="Panel administracyjny" />
         </RouteLink>
-
         <RouteLink to={APP_PAGE.STATISTICS}>
           <Button title="Statystyki" />
         </RouteLink>
