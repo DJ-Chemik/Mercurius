@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const SalesAreaBackground = styled.div`
+export const SalesAreaStyled = styled.div`
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -10,5 +10,3 @@ const SalesAreaBackground = styled.div`
   font-size: calc(10px + 2vmin);
   color: white;
 `
-
-export default SalesAreaBackground;

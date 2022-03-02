@@ -1,16 +1,16 @@
 import Button from "../../UI/Button/Button";
 import RouteLink from "../../UI/RouteLink/RouteLink.styled";
 import { APP_PAGE } from "../App";
-import SalesAreaBackground from "./SalesAreaBackground";
+import { SalesAreaStyled } from "./SalesArea.styled";
 
 const SalesArea = () => {
   return (
-    <SalesAreaBackground>
+    <SalesAreaStyled>
       Sales Area
       <RouteLink to={APP_PAGE.HOME}>
         <Button title="Powrót do strony głównej" />
       </RouteLink>
-    </SalesAreaBackground>
+    </SalesAreaStyled>
   )
 }
 
