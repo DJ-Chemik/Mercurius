@@ -25,8 +25,8 @@
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
-    "@types/styled-components": "^5.1.23",
-    "@types/react-router-dom": "^5.1.7"
+    "@types/react-router-dom": "^5.1.7",
+    "@types/styled-components": "^5.1.23"
   },
   "eslintConfig": {
     "extends": [
