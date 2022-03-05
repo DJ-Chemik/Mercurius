@@ -18,6 +18,7 @@
     "@types/react-dom": "^17.0.11",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-rounded-image": "^2.0.14",
     "react-router-dom": "^5.2.0",
     "react-scripts": "5.0.0",
     "styled-components": "^5.3.3",
@@ -25,8 +26,8 @@
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
-    "@types/styled-components": "^5.1.23",
-    "@types/react-router-dom": "^5.1.7"
+    "@types/react-router-dom": "^5.1.7",
+    "@types/styled-components": "^5.1.23"
   },
   "eslintConfig": {
     "extends": [
