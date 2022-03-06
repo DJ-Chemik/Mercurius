@@ -7,7 +7,8 @@ import { SalesAreaStyled } from "./SalesArea.styled";
 const SalesArea = () => {
   return (
     <SalesAreaStyled>
-      Sales Area
+      <Header />
+        Sales Area
       <RouteLink to={APP_PAGE.HOME}>
         <Button title="Powrót do strony głównej" />
       </RouteLink>
