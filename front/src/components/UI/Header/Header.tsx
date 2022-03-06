@@ -16,7 +16,7 @@ const Header = () => {
 
       <PanelElement>
         <PanelCenter>
-            <h1>React Project</h1>
+            <h1 className="App-title">REACT PROJECT</h1>
           </PanelCenter>
       </PanelElement>
 

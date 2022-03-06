@@ -3,7 +3,8 @@ import styled, {keyframes} from 'styled-components';
 export const MainPanel = styled.div`
   color: white;
   width: 100%;
-  height: 60px;
+  height: 120px;
+  margin: 10px;
 `
 
 export const PanelElement = styled.div`
@@ -39,6 +40,6 @@ export const PanelImageLeft = styled.img`
 
 export const PanelImageRight = styled.img`
    width: 30%;
-   filter: grayscale(100%);
+   /**filter: grayscale(100%);**/
    animation: ${rotateRight} 10s linear infinite;
 `
