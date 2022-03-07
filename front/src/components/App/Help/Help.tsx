@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
+import { Switch, Route , BrowserRouter as Router} from "react-router-dom";
+import { convertTypeAcquisitionFromJson } from "typescript";
 import {v4 as uuid_v4} from "uuid";
 import Button from "../../UI/Button/Button";
 import Header from "../../UI/Header/Header";
 import RouteLink from "../../UI/RouteLink/RouteLink.styled";
+import EditTabs from "../../UI/Tabs/EditTabs";
 import Tabs from "../../UI/Tabs/Tabs";
 import { APP_PAGE } from "../App";
 import { HelpStyled } from "./Help.styled";
@@ -22,29 +25,47 @@ const Help = () => {
     const [elements, setElements] = useState<PackageData[]>([]);
 
     //parameter just for testing
-    const addElementHandler = (name="Test") =>{
+    const addElementHandler = () =>{
 
         const request = {
             id: uuid_v4(),
-            name: "Allegro",
-            content: "Ale fajnie",
+            name: "New Element",
+            content: "New Content",
         }
-        console.log(request);
         setElements([...elements, request]);
     };
+
+    const updateElementHandler = (element : PackageData) => {
+        const {id, name, content} = element;
+
+        //change values after update
+        for(let i = 0; i < elements.length ; i++){
+            if(elements[i].id === id) {
+                elements[i].name = name;
+                elements[i].content = content;
+            }
+        }
+    }
 
     useEffect(() => {
         localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(elements))
     }, [elements]);
 
     return (
-        <HelpStyled>
-          <Header/>
-            <Tabs packageData={elements} addElementHandler = {addElementHandler}/>
-            <RouteLink to={APP_PAGE.HOME}>
-                <Button title="Powrót do strony głównej" />
-            </RouteLink>
-        </HelpStyled>
+            <HelpStyled>
+            <Header/>
+                <Router>
+                    <Switch>
+                        <Route path={APP_PAGE.HELP} render = {(props) => (<Tabs packageData={elements} addElementHandler = {addElementHandler}/>)}/>
+                        <Route path='/edit' render = {(props) => (<EditTabs {...props} updateElementHandler={updateElementHandler}/>)}/>
+                    </Switch>
+                </Router>
+                <RouteLink to={APP_PAGE.HOME}>
+                    <Button title="Powrót do strony głównej" />
+                </RouteLink>
+            </HelpStyled>
+
+
     )
 }
 

@@ -13,13 +13,13 @@ const Tabs = (props: { packageData: PackageData[], addElementHandler: Function }
       let {id, name, content} = elements[i];
 
       elementHTMLarray.push(
-        <Link to={{pathname: '/edit/{:id}', state: {tab : props.packageData[i]}}}>
-        <SingleTab>
-          <TitleStyled>{name}</TitleStyled>
-          <ContentStyled> 
-            {content}
-          </ContentStyled>
-        </SingleTab>
+        <Link to={{pathname: '/edit', state: {element : props.packageData[i]}}}>
+          <SingleTab>
+            <TitleStyled>{name}</TitleStyled>
+            <ContentStyled> 
+              {content}
+            </ContentStyled>
+          </SingleTab>
         </Link>
       );
     }
