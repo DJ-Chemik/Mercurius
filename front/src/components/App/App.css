@@ -29,14 +29,16 @@
 }
 
 .App-title {
-  /*background-color: greenyellow;*/
+  /*background-color: greenyellow;
+    justify-content: center;
+*/
   font-size: 60px;
   font-family: Segoe UI;
   font-weight: lighter;
   letter-spacing: 10px;
-  width: 600px;
-  justify-content: center;
-  text-align: center;
+  text-align: center;  
+  width: 550px;
+  
   text-shadow: 0 0 50px #61dafb,
               0 0 100px #61dafb,
               0 0 150px #61dafb,
