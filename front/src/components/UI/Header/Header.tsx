@@ -2,6 +2,7 @@ import React from "react";
 import logo from '../../../assets/logo.svg';
 import { MainPanel, PanelCenter, PanelElement, PanelImageLeft, PanelImageRight } from "./Header.styled";
 import './Header.styled.ts';
+import Title from "../../UI/Title/Title";
 
 
 const Header = () => {
@@ -16,7 +17,7 @@ const Header = () => {
 
       <PanelElement>
         <PanelCenter>
-            <h1 className="App-title">REACT  PROJECT</h1>
+            <Title title="REACT  PROJECT"/>
           </PanelCenter>
       </PanelElement>
 
