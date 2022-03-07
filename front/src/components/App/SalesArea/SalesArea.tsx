@@ -1,11 +1,11 @@
 import Button from "../../UI/Button/Button";
 import RouteLink from "../../UI/RouteLink/RouteLink.styled";
 import { APP_PAGE } from "../App";
-import { MainPageStyled } from "../MainPage/MainPage.styled";
 import allegro_image from "../../Images/allegro.jpg";
 import olx_image from "../../Images/olx.jpg";
 import ebay_image from "../../Images/ebay.jpg";
 import CompaniesSector from "../../UI/CompanyView/CompaniesSector";
+import { SalesAreaStyled } from "./SalesArea.styled";
 
 const SalesArea = () => {
   const examples = [
@@ -26,12 +26,12 @@ const SalesArea = () => {
     },
   ];
   return (
-    <MainPageStyled>
+      <SalesAreaStyled>
       <CompaniesSector items={examples} />
       <RouteLink to={APP_PAGE.HOME}>
         <Button title="Powrót do strony głównej" />
       </RouteLink>
-    </MainPageStyled>
+      </SalesAreaStyled>
   );
 };
 
