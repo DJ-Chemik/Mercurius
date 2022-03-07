@@ -26,12 +26,12 @@ const SalesArea = () => {
     },
   ];
   return (
-      <SalesAreaStyled>
+    <SalesAreaStyled>
       <CompaniesSector items={examples} />
       <RouteLink to={APP_PAGE.HOME}>
         <Button title="Powrót do strony głównej" />
       </RouteLink>
-      </SalesAreaStyled>
+    </SalesAreaStyled>
   );
 };
 

@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 export const CompanyStyle = styled.div`
   display: flex;
   flex-direction: column;
@@ -19,5 +18,3 @@ export const CompanyText = styled.div`
   font-size: 1.5rem;
   font-weight: bold;
 `;
-
-
