@@ -15,12 +15,6 @@ export const SingleTab = styled.div`
   border-radius: 15px;
   color:black;
   float: left;
-  cursor: pointer;
-
-  &:hover{
-    background-color: turquoise;
-  }
-
 `
 
 export const TitleStyled = styled.div`
@@ -30,7 +24,7 @@ export const TitleStyled = styled.div`
 `
 
 export const ContentStyled = styled.div`
-  height: 80%;
+  height: 60%;
   border-radius: inherit;
   font-size: small ;
   overflow: hidden;
