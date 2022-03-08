@@ -2,7 +2,7 @@ import Button from "../../UI/Button/Button";
 import RouteLink from "../../UI/RouteLink/RouteLink.styled";
 import { APP_PAGE } from "../App";
 
-const Maintenance = () => {
+const MaintenancePage = () => {
     return (
         <div>
             Maintance
@@ -13,4 +13,4 @@ const Maintenance = () => {
     )
 }
 
-export default Maintenance;
+export default MaintenancePage;

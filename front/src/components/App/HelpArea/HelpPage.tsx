@@ -2,7 +2,7 @@ import Button from "../../UI/Button/Button";
 import RouteLink from "../../UI/RouteLink/RouteLink.styled";
 import { APP_PAGE } from "../App";
 
-const Help = () => {
+const HelpPage = () => {
     return (
         <div>
             Help :(
@@ -13,4 +13,4 @@ const Help = () => {
     )
 }
 
-export default Help;
+export default HelpPage;
