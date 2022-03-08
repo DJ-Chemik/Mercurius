@@ -4,11 +4,11 @@ import {
   BrowserRouter as Router,
   Route,
 } from 'react-router-dom';
-import MainPage from './MainPage/MainPage';
+import MainPage from './MainPageArea/MainPage';
 import SalesArea from './SalesArea/SalesArea';
-import Maintenance  from "./Maintenance/Maintenance";
-import Statistics from "./Statistics/Statistics";
-import Help from "./Help/Help";
+import Maintenance  from "./MaintenanceArea/Maintenance";
+import Statistics from "./StatisticsArea/Statistics";
+import Help from "./HelpArea/Help";
 export enum APP_PAGE {
   HOME = '/',
   HELP = '/help',

@@ -4,6 +4,7 @@ import RouteLink from "../../UI/RouteLink/RouteLink.styled"
 import { APP_PAGE } from "../App"
 
 const MainPage = () => {
+
   return (
     <div>
       <header className="App-header">
@@ -11,7 +12,7 @@ const MainPage = () => {
         <RouteLink to={APP_PAGE.SALES}>
           <Button title="Panel sprzedaży" />
         </RouteLink>
-        <RouteLink to={APP_PAGE.MAINTENANCE}>
+        <RouteLink to={APP_PAGE.MAINTENANCE} >
           <Button title="Panel administracyjny" />
         </RouteLink>
         <RouteLink to={APP_PAGE.STATISTICS}>
