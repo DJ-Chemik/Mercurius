@@ -40,6 +40,6 @@ export const PanelImageLeft = styled.img`
 
 export const PanelImageRight = styled.img`
    width: 30%;
-   /**filter: grayscale(100%);**/
+   filter: grayscale(100%);
    animation: ${rotateRight} 10s linear infinite;
 `
