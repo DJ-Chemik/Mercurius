@@ -1,17 +1,15 @@
 import { render } from "@testing-library/react";
 import React from "react";
 import './Title.styled.ts';
-import {TitleLook} from "./Title.styled";
-
-
+import { TitleStyledWrapper } from "./Title.styled";
 
 interface TitleProps {
   title: string;
 }
 
 const Title = (props: TitleProps) => {
-  return( 
-    <TitleLook> {props.title} </TitleLook>);
+  return (
+    <TitleStyledWrapper> {props.title} </TitleStyledWrapper>);
 }
 
 export default Title;

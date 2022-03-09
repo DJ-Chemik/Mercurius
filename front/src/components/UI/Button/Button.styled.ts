@@ -7,7 +7,6 @@ export const ButtonWrapper = styled.div`
   cursor: pointer;
   color: #61dafb;
   padding: 10px;
-  /*width: 25%;*/
   font-family: Segoe UI;
   font-weight: lighter;
 `;

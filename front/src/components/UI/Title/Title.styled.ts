@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 
-export const TitleLook = styled.div`
+export const TitleStyledWrapper = styled.div`
 font-size: 60px;
 font-family: Segoe UI;
 font-weight: lighter;
