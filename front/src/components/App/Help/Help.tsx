@@ -1,11 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
-import { convertTypeAcquisitionFromJson } from "typescript";
 import { v4 as uuid_v4 } from "uuid";
 import Button from "../../UI/Button/Button";
 import Header from "../../UI/Header/Header";
 import RouteLink from "../../UI/RouteLink/RouteLink.styled";
-import EditTabs from "../../UI/Tabs/EditTabs";
+import EditTabs from "../../UI/Tabs/EditTabs/EditTabs";
 import Tabs from "../../UI/Tabs/Tabs";
 import { APP_PAGE } from "../App";
 import { HelpStyled } from "./Help.styled";
@@ -15,8 +14,10 @@ import { HelpStyled } from "./Help.styled";
 /* ONLY FOR DEVELOPING PROCESS */
 const sampleElements = [
     { id: uuid_v4(), name: "Allegro", content: "In up so discovery my middleton eagerness dejection explained. Estimating excellence ye contrasted insensible as. Oh up unsatiable advantages decisively as at interested. Present suppose in esteems in demesne colonel it to. End horrible she landlord screened stanhill. Repeated offended you opinions off dissuade ask packages screened. She alteration everything sympathize impossible his get compliment. Collected few extremity suffering met had sportsman." },
-    { id: uuid_v4(), name: "Amazon", content: "Jeffrey Bezos is cool"},
+    { id: uuid_v4(), name: "Amazon", content: "Amazon is cool"},
 ];
+
+/* END OF DEVELOPER SECTION */
 
 export interface PackageData {
     id: string;
@@ -25,9 +26,6 @@ export interface PackageData {
 };
 
 const Help = () => {
-    //Variables
-    const LOCAL_STORAGE_KEY = 'elements';
-
     //States
     const [elements, setElements] = useState<PackageData[]>(sampleElements);
 
@@ -53,10 +51,6 @@ const Help = () => {
             }
         }
     }
-
-    useEffect(() => {
-        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(elements))
-    }, [elements]);
 
     return (
         <HelpStyled>

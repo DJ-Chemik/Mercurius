@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import { PackageData } from '../../App/Help/Help';
-import EditTabsButton from './EditTabsButton';
+import EditTabsButton from './EditTabsButton/EditTabsButton';
 import { AddStyled, ContentStyled, SingleTab, TabsStyled, TitleStyled } from "./Tabs.styled";
 import './Tabs.styled.ts';
 

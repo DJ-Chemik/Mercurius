@@ -8,19 +8,19 @@ export const TabsStyled = styled.div`
 `
 
 export const SingleTab = styled.div`
-  margin: 15px ;
+  margin: 0.5em ;
   background-color: white;
-  height: 350px;
-  width: 250px;
+  height: 12em;
+  width: 8em;
   border-radius: 15px;
-  color:black;
+  color : black;
   float: left;
 `
 
 export const TitleStyled = styled.div`
   height: 20%;
-  border-bottom: solid;
-  font-weight: bold;
+  border-bottom: solid 0.5px;
+  font-weight: 300;
 `
 
 export const ContentStyled = styled.div`
