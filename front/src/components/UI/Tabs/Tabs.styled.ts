@@ -2,9 +2,12 @@ import styled from "styled-components";
 
 export const TabsStyled = styled.div`
   margin-top: 15px;
-  min-height: 100vh;
-  width: 90%;
+  height: 400px;
+  width: 95%;
   color: white;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
 `
 
 export const SingleTab = styled.div`
@@ -14,7 +17,9 @@ export const SingleTab = styled.div`
   width: 8em;
   border-radius: 15px;
   color : black;
+  flex: 0 0 auto;
   float: left;
+
 `
 
 export const TitleStyled = styled.div`
@@ -35,7 +40,7 @@ export const AddStyled = styled.button`
   /*Styling the button*/
 
   display:inline-block;
-  width:50px;
+  min-width:50px;
   height:50px;
   background:
     linear-gradient(#fff 0 0),
@@ -47,6 +52,5 @@ export const AddStyled = styled.button`
 
   /*Position of the button */
   margin-top: 150px;
-  float: left;
   cursor: pointer;
 `
