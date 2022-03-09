@@ -7,6 +7,9 @@ const SalesArea = () => {
   return (
     <SalesAreaStyled>
       Sales Area
+      <RouteLink to={APP_PAGE.PRODUCT}>
+        <Button title="Panel produktu" />
+      </RouteLink>
       <RouteLink to={APP_PAGE.HOME}>
         <Button title="Powrót do strony głównej" />
       </RouteLink>
