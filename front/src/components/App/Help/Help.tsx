@@ -9,15 +9,11 @@ import Tabs from "../../UI/Tabs/Tabs";
 import { APP_PAGE } from "../App";
 import { HelpStyled } from "./Help.styled";
 
-
-
-/* ONLY FOR DEVELOPING PROCESS */
+// ONLY FOR DEVELOPING PROCESS 
 const sampleElements = [
     { id: uuid_v4(), name: "Allegro", content: "In up so discovery my middleton eagerness dejection explained. Estimating excellence ye contrasted insensible as. Oh up unsatiable advantages decisively as at interested. Present suppose in esteems in demesne colonel it to. End horrible she landlord screened stanhill. Repeated offended you opinions off dissuade ask packages screened. She alteration everything sympathize impossible his get compliment. Collected few extremity suffering met had sportsman." },
     { id: uuid_v4(), name: "Amazon", content: "Amazon is cool"},
 ];
-
-/* END OF DEVELOPER SECTION */
 
 export interface PackageData {
     id: string;
@@ -26,7 +22,6 @@ export interface PackageData {
 };
 
 const Help = () => {
-    //States
     const [elements, setElements] = useState<PackageData[]>(sampleElements);
 
     //parameter just for testing
@@ -58,7 +53,7 @@ const Help = () => {
             <Router>
                 <Switch>
                     <Route path={APP_PAGE.HELP} render={(props) => (<Tabs packageData={elements} addElementHandler={addElementHandler} />)} />
-                    <Route path='/edit' render={(props) => (<EditTabs {...props} updateElementHandler={updateElementHandler} />)} />
+                    <Route path= {APP_PAGE.EDIT} render={(props) => (<EditTabs {...props} updateElementHandler={updateElementHandler} />)} />
                 </Switch>
             </Router>
             <RouteLink to={APP_PAGE.HOME}>

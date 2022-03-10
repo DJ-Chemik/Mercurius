@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const TabsStyled = styled.div`
   margin-top: 15px;
-  height: 400px;
+  height: 370px;
   width: 95%;
   color: white;
   display: flex;

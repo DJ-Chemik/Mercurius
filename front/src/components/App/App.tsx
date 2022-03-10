@@ -7,12 +7,14 @@ import {
 import MainPage from './MainPage/MainPage';
 import SalesArea from './SalesArea/SalesArea';
 import Help from "./Help/Help";
+
 export enum APP_PAGE {
   HOME = '/',
   HELP = '/help',
   MAINTENANCE = '/maintenance',
   STATISTICS = '/statistics',
   SALES = '/sales',
+  EDIT = '/edit',
 }
 
 function App() {
