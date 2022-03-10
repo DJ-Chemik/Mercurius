@@ -8,7 +8,7 @@
             {
                 "name": "Install",
                 "cwd": "${workspaceFolder}",
-                "command": "yarn install",
+                "command": "yarn install:all",
                 "color": "red"
             },
             {
