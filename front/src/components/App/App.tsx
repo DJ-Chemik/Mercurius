@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import MainPage from './MainPage/MainPage';
 import SalesArea from './SalesArea/SalesArea';
+import HelpArea from './HelpArea/HelpArea';
 
 export enum APP_PAGE {
   HOME = '/',
@@ -21,6 +22,7 @@ function App() {
       <div className="App">
         <Route exact path={APP_PAGE.HOME} component={MainPage} />
         <Route path={APP_PAGE.SALES} component={SalesArea} />
+        <Route path={APP_PAGE.HELP} component={HelpArea} />
       </div>
     </Router>
   );
