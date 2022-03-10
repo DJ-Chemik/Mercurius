@@ -1,21 +1,23 @@
 import CompanyBlock from "./CompanyBlock";
+import { CompanyProps } from "./CompanyBlock";
 
-const Companies = (props: any) => {
+interface CompanySectorProps {
+  items: Array<CompanyProps>;
+}
+
+const Companies = (props: CompanySectorProps) => {
   return (
-    <div>
-      <CompanyBlock
-        title={props.items[0].title}
-        img_src={props.items[0].img_src}
-      />
-      <CompanyBlock
-        title={props.items[1].title}
-        img_src={props.items[1].img_src}
-      />
-      <CompanyBlock
-        title={props.items[2].title}
-        img_src={props.items[2].img_src}
-      />
-    </div>
+    <ul>
+      {props.items.map(
+        (company: { title: string; img_src: string; id: string }) => (
+          <CompanyBlock
+            id={company.id}
+            title={company.title}
+            img_src={company.img_src}
+          />
+        )
+      )}
+    </ul>
   );
 };
 
