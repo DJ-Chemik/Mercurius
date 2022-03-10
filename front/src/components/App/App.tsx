@@ -4,11 +4,11 @@ import {
   BrowserRouter as Router,
   Route,
 } from 'react-router-dom';
-import MainPage from './MainPageArea/MainPage';
+import MainArea from './MainArea/MainArea';
 import SalesArea from './SalesArea/SalesArea';
-import MaintenancePage  from "./MaintenanceArea/MaintenancePage";
-import StatisticsPage from "./StatisticsArea/StatisticsPage";
-import HelpPage from "./HelpArea/HelpPage";
+import MaintenanceArea  from "./MaintenanceArea/MaintenanceArea";
+import StatisticsArea from "./StatisticsArea/StatisticsArea";
+import HelpArea from "./HelpArea/HelpArea";
 export enum APP_PAGE {
   HOME = '/',
   HELP = '/help',
@@ -21,11 +21,11 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Route exact path={APP_PAGE.HOME} component={MainPage} />
+        <Route exact path={APP_PAGE.HOME} component={MainArea} />
         <Route path={APP_PAGE.SALES} component={SalesArea} />
-        <Route path={APP_PAGE.MAINTENANCE} component={MaintenancePage} />
-        <Route path={APP_PAGE.STATISTICS} component={StatisticsPage} />
-        <Route path={APP_PAGE.HELP} component={HelpPage} />
+        <Route path={APP_PAGE.MAINTENANCE} component={MaintenanceArea} />
+        <Route path={APP_PAGE.STATISTICS} component={StatisticsArea} />
+        <Route path={APP_PAGE.HELP} component={HelpArea} />
       </div>
     </Router>
   );

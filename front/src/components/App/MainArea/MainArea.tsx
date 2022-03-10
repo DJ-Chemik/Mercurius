@@ -3,7 +3,7 @@ import ReactLogo from "../../UI/ReactLogo/ReactLogo"
 import RouteLink from "../../UI/RouteLink/RouteLink.styled"
 import { APP_PAGE } from "../App"
 
-const MainPage = () => {
+const MainArea = () => {
 
   return (
     <div>
@@ -27,4 +27,4 @@ const MainPage = () => {
   )
 }
 
-export default MainPage
+export default MainArea

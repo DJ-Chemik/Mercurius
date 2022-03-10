@@ -2,10 +2,10 @@ import Button from "../../UI/Button/Button";
 import RouteLink from "../../UI/RouteLink/RouteLink.styled";
 import { APP_PAGE } from "../App";
 
-const HelpPage = () => {
+const StatisticsArea = () => {
     return (
         <div>
-            Help :(
+            Statistics
             <RouteLink to={APP_PAGE.HOME}>
                 <Button title="Powrót do strony głównej" />
             </RouteLink>
@@ -13,4 +13,4 @@ const HelpPage = () => {
     )
 }
 
-export default HelpPage;
+export default StatisticsArea;
