@@ -1,4 +1,3 @@
-import { render } from "@testing-library/react";
 import React from "react";
 import './Title.styled.ts';
 import { TitleStyledWrapper } from "./Title.styled";
