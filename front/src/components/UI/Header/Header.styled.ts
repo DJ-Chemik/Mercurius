@@ -3,7 +3,8 @@ import styled, {keyframes} from 'styled-components';
 export const MainPanel = styled.div`
   color: white;
   width: 100%;
-  height: 60px;
+  height: 120px;
+  margin: 10px;
 `
 
 export const PanelElement = styled.div`
