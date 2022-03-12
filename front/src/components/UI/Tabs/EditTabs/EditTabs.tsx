@@ -1,12 +1,20 @@
 import { useState } from 'react';
 import { PackageData } from '../../../App/Help/Help';
-import { EditTabsButtonStyled, EditTabsInputStyled, EditTabsInputWideStyled} from './EditTabs.styled';
+import { EditPageStyled, EditTabsButtonStyled, EditTabsInputStyled, EditTabsInputWideStyled } from './EditTabs.styled';
 
 const EditTabs = (props: any) => {
-  //destructure the element
+
   const [state, setState] = useState<PackageData>(props.location.state.element);
 
-  const updateElement = (e: any) => {
+  const handleChangeContent = (e : any) => {
+    setState({ id: state.id, name: e.target.value, content: state.content });
+  }
+
+  const handleChangeName = (e : any) => {
+    setState({ id: state.id, name: state.name, content: e.target.value });
+  }
+
+  const updateElement = (e: React.FormEvent) => {
     e.preventDefault();
 
     if (state.name === "" || state.content === "") {
@@ -19,27 +27,30 @@ const EditTabs = (props: any) => {
 
   };
   return (
-    <div>
+    <EditPageStyled>
       <form onSubmit={updateElement}>
         Name:
-        <EditTabsInputStyled type="text" 
-        name="name" 
-        placeholder='Name' 
-        value={state.name} 
-        onChange={(e) => setState({ id: state.id, name: e.target.value, content: state.content })} />
+        <EditTabsInputStyled 
+          type="text"
+          name="name"
+          placeholder='Name'
+          value={state.name}
+          onChange={(e) => handleChangeContent(e)} 
+          />
 
         Content:
-        <EditTabsInputWideStyled 
-        name="content" 
-        placeholder='Content' 
-        value={state.content}
-        contentEditable='true'
-        onChange={(e) => setState({ id: state.id, name: state.name, content: e.target.value })} />
+        <EditTabsInputWideStyled
+          name="content"
+          placeholder='Content'
+          value={state.content}
+          contentEditable='true'
+          onChange={(e) => handleChangeName(e)} 
+          />
 
         <EditTabsButtonStyled>Edit</EditTabsButtonStyled>
 
       </form>
-    </div>
+    </EditPageStyled>
   )
 }
 

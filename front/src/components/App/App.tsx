@@ -1,4 +1,3 @@
-import ReactLogo from '../UI/ReactLogo/ReactLogo';
 import './App.css';
 import {
   BrowserRouter as Router,

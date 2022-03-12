@@ -10,7 +10,7 @@ import { APP_PAGE } from "../App";
 import { HelpStyled } from "./Help.styled";
 
 // ONLY FOR DEVELOPING PROCESS 
-const sampleElements = [
+const SAMPLE_ELEMENTS : PackageData[] = [
     { id: uuid_v4(), name: "Allegro", content: "In up so discovery my middleton eagerness dejection explained. Estimating excellence ye contrasted insensible as. Oh up unsatiable advantages decisively as at interested. Present suppose in esteems in demesne colonel it to. End horrible she landlord screened stanhill. Repeated offended you opinions off dissuade ask packages screened. She alteration everything sympathize impossible his get compliment. Collected few extremity suffering met had sportsman." },
     { id: uuid_v4(), name: "Amazon", content: "Amazon is cool"},
 ];
@@ -22,9 +22,8 @@ export interface PackageData {
 };
 
 const Help = () => {
-    const [elements, setElements] = useState<PackageData[]>(sampleElements);
+    const [elements, setElements] = useState<PackageData[]>(SAMPLE_ELEMENTS);
 
-    //parameter just for testing
     const addElementHandler = () => {
 
         const request = {
@@ -39,11 +38,10 @@ const Help = () => {
         const { id, name, content } = element;
 
         //change values after update
-        for (let i = 0; i < elements.length; i++) {
-            if (elements[i].id === id) {
-                elements[i].name = name;
-                elements[i].content = content;
-            }
+        var updatedElement = elements.find(e => e.id === id);
+        if(updatedElement){
+            updatedElement.content = content ;
+            updatedElement.name = name ;
         }
     }
 

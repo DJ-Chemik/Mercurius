@@ -8,6 +8,7 @@ export const TabsStyled = styled.div`
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
+  overflow-y: hidden;
 `
 
 export const SingleTab = styled.div`
@@ -37,8 +38,6 @@ export const ContentStyled = styled.div`
 
 `
 export const AddStyled = styled.button`
-  /*Styling the button*/
-
   display:inline-block;
   min-width:50px;
   height:50px;
@@ -49,8 +48,6 @@ export const AddStyled = styled.button`
   background-position:center;
   background-size: 50% 4px,4px 50%;
   background-repeat:no-repeat;
-
-  /*Position of the button */
   margin-top: 150px;
   cursor: pointer;
 `
