@@ -3,11 +3,12 @@ import './EditTabsButton.styled.ts';
 
 interface propsData{
   label: string;
+  onClick?: () => void;
 }
 
 const EditTabsButton = (props: propsData) => {
   return(
-    <EditButtonStyled> {props.label} </EditButtonStyled>
+    <EditButtonStyled onClick={props.onClick}> {props.label} </EditButtonStyled>
   );
 };
 

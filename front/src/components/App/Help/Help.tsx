@@ -22,38 +22,11 @@ export interface PackageData {
 };
 
 const Help = () => {
-    const [elements, setElements] = useState<PackageData[]>(SAMPLE_ELEMENTS);
-
-    const addElementHandler = () => {
-
-        const request = {
-            id: uuid_v4(),
-            name: "New Element",
-            content: "New Content",
-        }
-        setElements([...elements, request]);
-    };
-
-    const updateElementHandler = (element: PackageData) => {
-        const { id, name, content } = element;
-
-        //change values after update
-        var updatedElement = elements.find(e => e.id === id);
-        if(updatedElement){
-            updatedElement.content = content ;
-            updatedElement.name = name ;
-        }
-    }
 
     return (
         <HelpStyled>
             <Header />
-            <Router>
-                <Switch>
-                    <Route path={APP_PAGE.HELP} render={(props) => (<Tabs packageData={elements} addElementHandler={addElementHandler} />)} />
-                    <Route path= {APP_PAGE.EDIT} render={(props) => (<EditTabs {...props} updateElementHandler={updateElementHandler} />)} />
-                </Switch>
-            </Router>
+            <Tabs packageData={SAMPLE_ELEMENTS}/>
             <RouteLink to={APP_PAGE.HOME}>
                 <Button title="Powrót do strony głównej" />
             </RouteLink>

@@ -3,9 +3,9 @@ import { PackageData } from '../../../App/Help/Help';
 import { EditPageStyled, EditTabsButtonStyled, EditTabsInputStyled, EditTabsInputWideStyled } from './EditTabs.styled';
 
 const EditTabs = (props: any) => {
-
+  console.log(props);
   const [state, setState] = useState<PackageData>(props.location.state.element);
-
+  console.log(state);
   const handleChangeContent = (e : any) => {
     setState({ id: state.id, name: e.target.value, content: state.content });
   }
