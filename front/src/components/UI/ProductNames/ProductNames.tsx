@@ -1,6 +1,5 @@
 import { FieldsetStyledWrapper, Information, StyledInput } from "./ProductNames.styled"
 
-
 const ProductNames = () => {
   return (
     <FieldsetStyledWrapper >

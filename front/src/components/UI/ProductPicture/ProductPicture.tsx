@@ -1,9 +1,14 @@
-import { Picture, FieldsetStyledWrapper } from "./ProductPicture.styled"
+import { FieldsetStyledWrapper, Information, StyledInput, Picture } from "./ProductPicture.styled"
 
-
-const ProductPicture = () => {
+const ProductDates = () => {
   return (
     <FieldsetStyledWrapper>
+      <Information>
+        Link do aukcji:
+      </Information>
+      <StyledInput>
+        <input type="text" id="fname" name="fname" />
+      </StyledInput>
       <Picture>
         Dołącz zdjecie produktu.
       </Picture>
@@ -11,4 +16,4 @@ const ProductPicture = () => {
   )
 }
 
-export default ProductPicture
+export default ProductDates

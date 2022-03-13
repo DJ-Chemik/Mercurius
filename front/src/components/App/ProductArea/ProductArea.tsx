@@ -1,21 +1,21 @@
-import ProductDates from "../../UI/ProductDates/ProductDates";
+import ProductDates from "../../UI/ProductPicture/ProductPicture";
 import ProductNames from "../../UI/ProductNames/ProductNames";
-import ProductPicture from "../../UI/ProductPicture/ProductPicture";
 import ProductPrices from "../../UI/ProductPrices/ProductPrices";
 import Button from "../../UI/Button/Button";
 import RouteLink from "../../UI/RouteLink/RouteLink.styled";
 import { APP_PAGE } from "../App";
-import { ProductAreaStyled, Container, Send} from "./ProductArea.styled";
+import { ProductAreaStyled, Container, Send, Row1 } from "./ProductArea.styled";
 
 const ProductArea = () => {
   return (
     <ProductAreaStyled>
       <h1>Product Area</h1>
       <Container>
-        <ProductNames/>
-        <ProductPrices/>
-        <ProductDates/>
-        <ProductPicture/>
+        <Row1>
+          <ProductNames />
+          <ProductPrices />
+        </Row1>
+        <ProductDates />
         <Send>
           <input type="submit" value="Wyślij" />
         </Send>

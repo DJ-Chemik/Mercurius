@@ -10,31 +10,19 @@ export const ProductAreaStyled = styled.div`
   font-size: calc(10px + 2vmin);
   color: white;
 `
-
 export const Container = styled.div`
-  width: 50%;
+  width: 70%;
+  display: block;
 `
-
-export const StyledInput = styled.div`
-  font-size: 20px;
-  background-color: white;
-  color: black;
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
+export const Row1 = styled.div`
+  display: block;
 `
-
 export const Send = styled.div`
-  width: 100%;
   background-color: #4CAF50;
   color: white;
-  border: none;
   border-radius: 4px;
   cursor: pointer;
-  margin: 20px 0px;
+  margin: 40px 0;
   padding: 8px 0px;
 `
 
