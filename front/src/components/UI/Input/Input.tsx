@@ -1,7 +1,7 @@
 import React from "react";
-import { CustomInputWrapper } from "./Input.styled";
+import { CustomInputWrapper, InputWidth } from "./Input.styled";
 
-interface CustomInputProps {
+interface InputProps {
   maxLength?: number;
   name?: string;
   type?: React.HTMLInputTypeAttribute;
@@ -10,18 +10,20 @@ interface CustomInputProps {
   max?: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onKeyPress?: (event: React.KeyboardEvent) => void;
+  value?: string;
 }
 
-const CustomInput = (props: CustomInputProps) => {
+const CustomInput = (props: InputProps) => {
   return (
     <CustomInputWrapper>
-      <input
+      <InputWidth
       maxLength = {props.maxLength}
       name = {props.name}
       type = {props.type}
       defaultValue = {props.defaultValue}
       min = {props.min}
       max = {props.max}
+      value = {props.value}
       onChange={props.onChange}
       onKeyPress={props.onKeyPress}
       />

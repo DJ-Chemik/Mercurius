@@ -7,3 +7,7 @@ export const CustomInputWrapper = styled.div`
   box-sizing: border-box;
   display: block;
 `
+export const InputWidth = styled.input`
+  width: 100%;
+  height: 25px;
+`
