@@ -40,7 +40,7 @@ const EditTabs = (props: EditTabsProps) => {
           name="name"
           placeholder='Name'
           value={state.name}
-          onChange={(e) => handleChangeContent(e)} 
+          onChange={handleChangeContent} 
           />
 
         Content:
@@ -49,7 +49,7 @@ const EditTabs = (props: EditTabsProps) => {
           placeholder='Content'
           value={state.content}
           contentEditable='true'
-          onChange={(e) => handleChangeName(e)} 
+          onChange={handleChangeName} 
           />
 
         <EditTabsButtonStyled>Edit</EditTabsButtonStyled>

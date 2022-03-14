@@ -14,7 +14,7 @@ export enum APP_PAGE {
   MAINTENANCE = '/maintenance',
   STATISTICS = '/statistics',
   SALES = '/sales',
-  EDIT = '/edit',
+  EDIT = '/edit-tabs',
 }
 
 function App() {

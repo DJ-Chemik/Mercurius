@@ -1,10 +1,7 @@
-import { useState } from "react";
-import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 import { v4 as uuid_v4 } from "uuid";
 import Button from "../../UI/Button/Button";
 import Header from "../../UI/Header/Header";
 import RouteLink from "../../UI/RouteLink/RouteLink.styled";
-import EditTabs from "../../UI/Tabs/EditTabs/EditTabs";
 import Tabs from "../../UI/Tabs/Tabs";
 import { APP_PAGE } from "../App";
 import { HelpStyled } from "./Help.styled";
@@ -31,8 +28,6 @@ const Help = () => {
                 <Button title="Powrót do strony głównej" />
             </RouteLink>
         </HelpStyled>
-
-
     )
 }
 

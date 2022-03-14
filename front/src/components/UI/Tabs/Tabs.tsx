@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import { Switch, BrowserRouter as Router, Route, RouteComponentProps } from 'react-router-dom';
+import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
 import { APP_PAGE } from '../../App/App';
 import { PackageData } from '../../App/Help/Help';
 import EditTabsButton from './EditTabsButton/EditTabsButton';
@@ -9,9 +9,8 @@ import { v4 as uuid_v4 } from "uuid";
 import './Tabs.styled.ts';
 import EditTabs from './EditTabs/EditTabs';
 import RouteLink from '../RouteLink/RouteLink.styled';
-import { assert } from 'console';
 
-interface propsData {
+interface TabsProps {
   packageData: PackageData[];
 };
 
@@ -19,19 +18,11 @@ interface EditRouteState{
   element : PackageData;
 }
 
-let chosenElement: PackageData = {
-  id: uuid_v4(), name: "New Element", content: "New Content",
-};
-
-
-const Tabs = (props: propsData) => {
-
-  //-------------------------
+const Tabs = (props: TabsProps) => {
 
   const [elements, setElements] = useState<PackageData[]>(props.packageData);
 
   const addElementHandler = () => {
-    console.log("What is up");
     const request: PackageData = {
       id: uuid_v4(), name: "New Element", content: "New Content",
     }
@@ -41,7 +32,7 @@ const Tabs = (props: propsData) => {
   const updateElementHandler = (element: PackageData) => {
     const { id, name, content } = element;
 
-    var updatedElement = elements.find(e => e.id === id);
+    const updatedElement = elements.find(e => e.id === id);
     if (updatedElement) {
       updatedElement.content = content;
       updatedElement.name = name;
@@ -51,9 +42,9 @@ const Tabs = (props: propsData) => {
   const addContentHandler = (): PropTypes.ReactNodeArray => {
     const elementHTMLarray : PropTypes.ReactNodeArray = [];
 
-    elements.forEach((e) =>{
-      const { id, name, content } = e;
-      const routeState : EditRouteState = { element: e } ;
+    elements.forEach((element) =>{
+      const { name, content } = element;
+      const routeState : EditRouteState = { element: element } ;
       elementHTMLarray.push(
         <SingleTab>
           <TitleStyled>{name}</TitleStyled>
@@ -69,16 +60,20 @@ const Tabs = (props: propsData) => {
     return elementHTMLarray;
   };
 
+  const renderTabsHandler = () => {
+    return (
+      <TabsStyled >
+      {addContentHandler()}
+      <AddStyled onClick={addElementHandler} />
+    </TabsStyled>
+    );
+  };
+
 
   return (
       <Router>
         <Switch>
-          <Route path={APP_PAGE.HELP} render={() => (
-            <TabsStyled >
-              {addContentHandler()}
-              <AddStyled onClick={() => addElementHandler()} />
-            </TabsStyled>
-          )}
+          <Route path={APP_PAGE.HELP} render={renderTabsHandler}
           />
           <Route path={APP_PAGE.EDIT} render={(routeProps) => {
             const routeLocationState = routeProps.location.state as EditRouteState;

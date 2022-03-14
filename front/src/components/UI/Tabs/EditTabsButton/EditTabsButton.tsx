@@ -1,12 +1,12 @@
 import { EditButtonStyled } from './EditTabsButton.styled';
 import './EditTabsButton.styled.ts';
 
-interface propsData{
+interface EditTabsButtonProps{
   label: string;
   onClick?: () => void;
 }
 
-const EditTabsButton = (props: propsData) => {
+const EditTabsButton = (props: EditTabsButtonProps) => {
   return(
     <EditButtonStyled onClick={props.onClick}> {props.label} </EditButtonStyled>
   );
