@@ -8,15 +8,13 @@ interface CompanySectorProps {
 const Companies = (props: CompanySectorProps) => {
   return (
     <ul>
-      {props.items.map(
-        (company: { title: string; img_src: string; id: string }) => (
-          <CompanyBlock
-            id={company.id}
-            title={company.title}
-            img_src={company.img_src}
-          />
-        )
-      )}
+      {props.items.map((company: CompanyProps) => (
+        <CompanyBlock
+          key={company.key}
+          title={company.title}
+          img_src={company.img_src}
+        />
+      ))}
     </ul>
   );
 };
