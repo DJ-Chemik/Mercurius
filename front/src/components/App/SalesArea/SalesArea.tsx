@@ -29,6 +29,9 @@ const EXAMPLES_COMPANIES = [
 const SalesArea = () => {
   return (
     <SalesAreaStyled>
+      <RouteLink to={APP_PAGE.PRODUCT}>
+        <Button title="Panel produktu" />
+      </RouteLink>
       <CompaniesSector items={EXAMPLES_COMPANIES} />
       <RouteLink to={APP_PAGE.HOME}>
         <Button title="Powrót do strony głównej" />
