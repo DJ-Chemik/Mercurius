@@ -1,16 +1,21 @@
-import { useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import { PackageData } from '../../../App/Help/Help';
 import { EditPageStyled, EditTabsButtonStyled, EditTabsInputStyled, EditTabsInputWideStyled } from './EditTabs.styled';
 
-const EditTabs = (props: any) => {
-  console.log(props);
-  const [state, setState] = useState<PackageData>(props.location.state.element);
-  console.log(state);
-  const handleChangeContent = (e : any) => {
+interface EditTabsProps {
+  element : PackageData;
+  updateElementHandler: (state : PackageData) => void;
+  history : any; //Problem z importem typu History<>
+}
+
+const EditTabs = (props: EditTabsProps) => {
+  const [state, setState] = useState<PackageData>(props.element);
+  
+  const handleChangeContent = (e : ChangeEvent<HTMLInputElement>) => {
     setState({ id: state.id, name: e.target.value, content: state.content });
   }
 
-  const handleChangeName = (e : any) => {
+  const handleChangeName = (e : ChangeEvent<HTMLTextAreaElement>) => {
     setState({ id: state.id, name: state.name, content: e.target.value });
   }
 
