@@ -4,17 +4,17 @@ import ProductPrices from "../../UI/ProductPrices/ProductPrices";
 import Button from "../../UI/Button/Button";
 import RouteLink from "../../UI/RouteLink/RouteLink.styled";
 import { APP_PAGE } from "../App";
-import { ProductAreaStyled, Container, Send, Row1 } from "./ProductArea.styled";
+import { ProductAreaStyled, Container, Send, FirstRow } from "./ProductArea.styled";
 
 const ProductArea = () => {
   return (
     <ProductAreaStyled>
       <h1>Product Area</h1>
       <Container>
-        <Row1>
+        <FirstRow>
           <ProductNames />
           <ProductPrices />
-        </Row1>
+        </FirstRow>
         <ProductDates />
         <Send>
           <input type="submit" value="Wyślij" />

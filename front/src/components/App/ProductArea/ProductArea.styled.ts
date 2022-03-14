@@ -14,7 +14,7 @@ export const Container = styled.div`
   width: 70%;
   display: block;
 `
-export const Row1 = styled.div`
+export const FirstRow = styled.div`
   display: block;
 `
 export const Send = styled.div`
