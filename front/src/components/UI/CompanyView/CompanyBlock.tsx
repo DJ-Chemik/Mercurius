@@ -2,7 +2,7 @@ import { CompanyStyle } from "./Company.styled";
 import { CompanyText } from "./Company.styled";
 
 export interface CompanyProps {
-  id: string;
+  key: string;
   title: string;
   img_src: string;
 }

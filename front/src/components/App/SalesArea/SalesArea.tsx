@@ -9,17 +9,17 @@ import { SalesAreaStyled } from "./SalesArea.styled";
 
 const EXAMPLES_COMPANIES = [
   {
-    id: "1",
+    key: "1",
     title: "Allegro",
     img_src: allegro_image,
   },
   {
-    id: "2",
+    key: "2",
     title: "OLX",
     img_src: olx_image,
   },
   {
-    id: "3",
+    key: "3",
     title: "eBay",
     img_src: ebay_image,
   },
