@@ -1,4 +1,5 @@
 import Button from "../../UI/Button/Button";
+import Header from "../../UI/Header/Header";
 import RouteLink from "../../UI/RouteLink/RouteLink.styled";
 import { APP_PAGE } from "../App";
 import allegro_image from "../../Images/allegro.jpg";

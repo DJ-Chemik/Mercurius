@@ -9,11 +9,11 @@ const MainPage = () => {
     <MainPageStyled>
       <Header />
       <RouteLink to={APP_PAGE.SALES}>
-        <Button title="Panel sprzedaży" />
+        <Button title="PANEL SPRZEDAŻY" />
       </RouteLink>
-      <Button title="Panel administracyjny" />
-      <Button title="Statystyki" />
-      <Button title="Pomoc" />
+      <Button title="PANEL ADMINISTRACYJNY" />
+      <Button title="STATYSTYKI" />
+      <Button title="POMOC" />
     </MainPageStyled>
   );
 };
