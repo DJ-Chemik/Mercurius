@@ -1,23 +1,21 @@
-import Button from "../../UI/Button/Button"
-import ReactLogo from "../../UI/ReactLogo/ReactLogo"
-import RouteLink from "../../UI/RouteLink/RouteLink.styled"
+import Button from "../../UI/Button/Button";
+import RouteLink from "../../UI/RouteLink/RouteLink.styled";
 import Header from "../../UI/Header/Header";
-import { APP_PAGE } from "../App"
-import { MainPageStyled } from "./MainPage.styled"
-
+import { APP_PAGE } from "../App";
+import { MainPageStyled } from "./MainPage.styled";
 
 const MainPage = () => {
   return (
-    <MainPageStyled >
+    <MainPageStyled>
       <Header />
       <RouteLink to={APP_PAGE.SALES}>
-        <Button title="Panel sprzedaży" />
+        <Button title="PANEL SPRZEDAŻY" />
       </RouteLink>
-      <Button title="Panel administracyjny" />
-      <Button title="Statystyki" />
-      <Button title="Pomoc" />
+      <Button title="PANEL ADMINISTRACYJNY" />
+      <Button title="STATYSTYKI" />
+      <Button title="POMOC" />
     </MainPageStyled>
-  )
-}
+  );
+};
 
-export default MainPage
+export default MainPage;
