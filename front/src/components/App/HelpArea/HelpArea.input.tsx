@@ -7,17 +7,11 @@ const HelpAreaInput = () => {
   const [charInput, setCharInput] = useState('');
   const [numberInput, setNumberInput] = useState('');
   const MAX_CHARS = 20
-  const MAX_VALUE = "1000"
-  const chars_left = MAX_CHARS - charInput.length;
-  
-  const checkIfNumber = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (!/[0-9]/.test(event.key)) {
-      return event.preventDefault();
-    }
-  }
+  const MAX_VALUE = 1000
+  const charsLeft = MAX_CHARS - charInput.length;
 
   const checkIfValid = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (Number(e.target.value) <= Number(MAX_VALUE)) {
+    if (Number(e.target.value) <= MAX_VALUE) {
       return setNumberInput(e.target.value);
     }
   }
@@ -30,10 +24,9 @@ const HelpAreaInput = () => {
           <Input
             type="number"
             min="1"
-            max={MAX_VALUE}
+            max={MAX_VALUE.toString()}
             value = {numberInput}
             onChange = {(e) => checkIfValid(e)}
-            onKeyPress={() => checkIfNumber}
           />
         <label>Dane tekstowe:</label>
           <Input
@@ -42,7 +35,7 @@ const HelpAreaInput = () => {
             maxLength={20}
             onChange={(e) => setCharInput(e.target.value)} 
           />
-        <p>Pozostało { chars_left } znaków</p>
+        <p>Pozostało { charsLeft } znaków</p>
       </form>
       <Button title = "Wyślij" />
     </div>
