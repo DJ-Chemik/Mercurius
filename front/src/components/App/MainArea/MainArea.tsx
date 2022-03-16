@@ -3,16 +3,15 @@ import ReactLogo from "../../UI/ReactLogo/ReactLogo"
 import RouteLink from "../../UI/RouteLink/RouteLink.styled"
 import Header from "../../UI/Header/Header";
 import { APP_PAGE } from "../App"
-import { MainPageStyled } from "./MainPage.styled"
+import { MainAreaStyled } from "./MainArea.styled"
 
 
 const MainArea = () => {
 
   return (
     <div>
-      <MainPageStyled>
+      <MainAreaStyled>
         <Header/>
-      <header className="App-header">
         <ReactLogo />
         <RouteLink to={APP_PAGE.SALES}>
           <Button title="Panel sprzedaży" />
@@ -26,9 +25,7 @@ const MainArea = () => {
         <RouteLink to={APP_PAGE.HELP}>
           <Button title="Pomoc" />
         </RouteLink>
-
-      </header>
-      </MainPageStyled>
+      </MainAreaStyled>
     </div>
 
   )
