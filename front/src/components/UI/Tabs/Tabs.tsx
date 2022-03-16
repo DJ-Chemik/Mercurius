@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
 import { APP_PAGE } from '../../App/App';
-import { PackageData } from '../../App/Help/Help';
+import { PackageData } from '../../App/HelpArea/HelpArea';
 import EditTabsButton from './EditTabsButton/EditTabsButton';
 import { AddStyled, ContentStyled, SingleTab, TabsStyled, TitleStyled } from "./Tabs.styled";
 import { v4 as uuid_v4 } from "uuid";

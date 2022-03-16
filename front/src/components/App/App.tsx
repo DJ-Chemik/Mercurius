@@ -3,10 +3,15 @@ import {
   BrowserRouter as Router,
   Route,
 } from 'react-router-dom';
-import MainPage from './MainPage/MainPage';
+import MainArea from './MainArea/MainArea';
 import SalesArea from './SalesArea/SalesArea';
-import Help from "./Help/Help";
 import EditTabs from '../UI/Tabs/EditTabs/EditTabs';
+import MaintenanceArea  from "./MaintenanceArea/MaintenanceArea";
+import StatisticsArea from "./StatisticsArea/StatisticsArea";
+import HelpArea from "./HelpArea/HelpArea";
+import ProductArea from './ProductArea/ProductArea';
+import MainPage from './MainPage/MainPage';
+
 
 export enum APP_PAGE {
   HOME = '/',
@@ -15,6 +20,8 @@ export enum APP_PAGE {
   STATISTICS = '/statistics',
   SALES = '/sales',
   EDIT = '/edit-tabs',
+  PRODUCT = '/product',
+
 }
 
 function App() {
@@ -23,8 +30,11 @@ function App() {
       <div className="App">
         <Route exact path={APP_PAGE.HOME} component={MainPage} />
         <Route path={APP_PAGE.SALES} component={SalesArea} />
-        <Route path={APP_PAGE.HELP} component={Help} />
         <Route path={APP_PAGE.EDIT} component={EditTabs} />
+        <Route path={APP_PAGE.MAINTENANCE} component={MaintenanceArea} />
+        <Route path={APP_PAGE.STATISTICS} component={StatisticsArea} />
+        <Route path={APP_PAGE.HELP} component={HelpArea} />
+        <Route path={APP_PAGE.PRODUCT} component={ProductArea} />
       </div>
     </Router>
   );

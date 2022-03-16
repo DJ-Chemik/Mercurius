@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useState } from 'react';
-import { PackageData } from '../../../App/Help/Help';
+import { PackageData } from '../../../App/HelpArea/HelpArea';
 import { EditPageStyled, EditTabsButtonStyled, EditTabsInputStyled, EditTabsInputWideStyled } from './EditTabs.styled';
 
 interface EditTabsProps {

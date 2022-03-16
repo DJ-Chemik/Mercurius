@@ -4,7 +4,7 @@ import Header from "../../UI/Header/Header";
 import RouteLink from "../../UI/RouteLink/RouteLink.styled";
 import Tabs from "../../UI/Tabs/Tabs";
 import { APP_PAGE } from "../App";
-import { HelpStyled } from "./Help.styled";
+import { HelpStyled } from "../HelpArea/Help.styled";
 
 // ONLY FOR DEVELOPING PROCESS 
 const SAMPLE_ELEMENTS : PackageData[] = [
@@ -18,7 +18,7 @@ export interface PackageData {
     content: string;
 };
 
-const Help = () => {
+const HelpArea = () => {
 
     return (
         <HelpStyled>
@@ -31,4 +31,4 @@ const Help = () => {
     )
 }
 
-export default Help;
+export default HelpArea;
