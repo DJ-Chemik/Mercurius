@@ -10,6 +10,8 @@ const MainArea = () => {
 
   return (
     <div>
+      <MainPageStyled>
+        <Header/>
       <header className="App-header">
         <ReactLogo />
         <RouteLink to={APP_PAGE.SALES}>
@@ -26,6 +28,7 @@ const MainArea = () => {
         </RouteLink>
 
       </header>
+      </MainPageStyled>
     </div>
 
   )
