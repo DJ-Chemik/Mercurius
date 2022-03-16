@@ -8,9 +8,7 @@ const ListAuctions = (props: { auctions: any[]; }) =>{
         auction.forEach(function (item, index){
 
             if(item === e.target.value){
-                console.log("Znaleziony i usuniety?")
                 delete props.auctions[index];
-
                 return
             }
         })

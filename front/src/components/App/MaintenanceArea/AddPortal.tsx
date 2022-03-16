@@ -1,6 +1,5 @@
 import React from "react";
 import ListAuctions from "./ListAuctions";
-import {stringify} from "querystring";
 
 class AddPortal extends React.Component{
     state = {
@@ -16,8 +15,6 @@ class AddPortal extends React.Component{
                 temp.push(item)
             }
         })
-        console.log("Wyczysczone!")
-        console.log(temp)
         return temp
     }
 
@@ -33,7 +30,6 @@ class AddPortal extends React.Component{
         e.preventDefault()
 
         if(this.state.auctions.includes(this.state.name)){
-            console.log("Zawiera już!")
             alert("Aukcja o takiej nazwie już istnieje!")
             this.setState({
                 ...this.state,
@@ -51,7 +47,6 @@ class AddPortal extends React.Component{
             auctions : [...this.state.auctions.filter(function (element){return element !== undefined}), this.state.name],
             name: "",
         })
-        console.log(this)
         return
     }
 
