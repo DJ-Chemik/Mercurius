@@ -2,6 +2,7 @@ import Button from "../../UI/Button/Button";
 import RouteLink from "../../UI/RouteLink/RouteLink.styled";
 import { APP_PAGE } from "../App";
 import AddPortal from "./AddPortal";
+
 const MaintenanceArea = () => {
     return (
         <div>
