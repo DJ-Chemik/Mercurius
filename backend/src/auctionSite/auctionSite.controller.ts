@@ -3,10 +3,10 @@ import { AuctionSiteService } from './auctionSite.service';
 
 @Controller('auctionsites')
 export class AuctionSiteController {
-  constructor(private readonly appService: AuctionSiteService) {}
+  constructor(private readonly auctionSiteService: AuctionSiteService) {}
 
   @Get('hello')
   getAuctionSite(): string {
-    return this.appService.getAuctionSite();
+    return this.auctionSiteService.getAuctionSite();
   }
 }
