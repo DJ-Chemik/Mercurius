@@ -5,9 +5,6 @@ import Header from "../../UI/Header/Header";
 import { APP_PAGE } from "../App"
 import { MainAreaStyled } from "./MainArea.styled"
 
-
-
-
 const MainArea = () => {
 
   return (
