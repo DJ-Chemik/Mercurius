@@ -12,7 +12,6 @@ import HelpArea from "./HelpArea/HelpArea";
 import ProductArea from './ProductArea/ProductArea';
 import MainPage from './MainPage/MainPage';
 
-
 export enum APP_PAGE {
   HOME = '/',
   HELP = '/help',
@@ -21,14 +20,13 @@ export enum APP_PAGE {
   SALES = '/sales',
   EDIT = '/edit-tabs',
   PRODUCT = '/product',
-
 }
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <Route exact path={APP_PAGE.HOME} component={MainPage} />
+        <Route exact path={APP_PAGE.HOME} component={MainArea} />
         <Route path={APP_PAGE.SALES} component={SalesArea} />
         <Route path={APP_PAGE.EDIT} component={EditTabs} />
         <Route path={APP_PAGE.MAINTENANCE} component={MaintenanceArea} />

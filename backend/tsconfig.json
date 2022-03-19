@@ -12,8 +12,13 @@
     "baseUrl": "./",
     "incremental": true,
     "skipLibCheck": true,
+<<<<<<< HEAD
     "strictNullChecks": true,
     "noImplicitAny": true,
+=======
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+>>>>>>> develop
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false
