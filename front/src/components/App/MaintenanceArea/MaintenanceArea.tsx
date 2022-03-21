@@ -1,14 +1,16 @@
 import Button from "../../UI/Button/Button";
 import RouteLink from "../../UI/RouteLink/RouteLink.styled";
-import { APP_PAGE } from "../App";
-import AddPortal from "./AddPortal";
+import {APP_PAGE} from "../App";
+import ManageAuctions from "./ManageAuctions";
+
 const MaintenanceArea = () => {
+
     return (
         <div>
             Maintenence
-            <AddPortal/>
+            <ManageAuctions/>
             <RouteLink to={APP_PAGE.HOME}>
-                <Button title="Powrót do strony głównej" />
+                <Button title="Powrót do strony głównej"/>
             </RouteLink>
         </div>
     )
