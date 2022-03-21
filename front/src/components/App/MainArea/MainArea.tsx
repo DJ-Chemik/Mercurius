@@ -26,6 +26,7 @@ const MainArea = () => {
           </RouteLink>
         </MainAreaStyled >
       </div >
+
   )
 }
 

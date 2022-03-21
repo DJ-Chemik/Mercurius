@@ -8,27 +8,46 @@
             {
                 "name": "Install",
                 "cwd": "${workspaceFolder}",
-                "command": "yarn install",
+                "command": "yarn install:all",
                 "color": "red"
             },
             {
-                "name": "Build",
-                "cwd": "${workspaceFolder}",
+                "name": "B FRONT",
+                "cwd": "${workspaceFolder}/front",
                 "command": "yarn build",
                 "color": "yellow"
             },
             {
-                "name": "Start",
-                "cwd": "${workspaceFolder}",
+                "name": "B API",
+                "cwd": "${workspaceFolder}/backend",
+                "command": "yarn build",
+                "color": "yellow"
+            },
+            {
+                "name": "FRONT",
+                "cwd": "${workspaceFolder}/front",
                 "command": "yarn start",
                 "color": "cyan"
             },
+            {
+                "name": "API",
+                "cwd": "${workspaceFolder}/backend",
+                "command": "yarn start:debug",
+                "color": "cyan"
+            },
+            {
+                "name": "DB",
+                "cwd": "${workspaceFolder}/database",
+                "command": "docker-compose up",
+                "color": "cyan"
+            }
         ]
     },
     "cSpell.words": [
         "browserslist",
         "głównej",
         "Mercurius",
+        "Pomoc",
         "Powrót",
         "strony"
     ],
