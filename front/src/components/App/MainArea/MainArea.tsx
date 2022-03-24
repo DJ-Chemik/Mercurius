@@ -10,7 +10,7 @@ const MainArea = () => {
   return (
     <div>
       <MainAreaStyled>
-        <ReactLogo />
+        <Header/>
         <RouteLink to={APP_PAGE.SALES}>
           <Button title="Panel sprzedaży" />
         </RouteLink>
