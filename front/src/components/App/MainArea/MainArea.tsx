@@ -4,15 +4,12 @@ import Header from "../../UI/Header/Header";
 import { APP_PAGE } from "../App"
 import { MainAreaStyled } from "./MainArea.styled"
 
-
-
-
 const MainArea = () => {
 
   return (
     <div>
       <MainAreaStyled>
-        <Header />
+        <Header/>
         <RouteLink to={APP_PAGE.SALES}>
           <Button title="Panel sprzedaży" />
         </RouteLink>
