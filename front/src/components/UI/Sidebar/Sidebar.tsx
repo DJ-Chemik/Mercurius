@@ -6,17 +6,18 @@ interface SidebarProps {
     icon?: JSX.Element;
     link: string;
   }[]
+  onClick?: React.MouseEventHandler<HTMLInputElement>;
 }
 
 const Sidebar = (props: SidebarProps) => {
 
-  const Router = (link: string) => {
+  const myRouter = (link: string) => {
 
     const routes = ['/', '/help','maintenance','/statistics','/sales','/product'];
     var lastPath = window.location.pathname.split("/").pop();
     var newUrl = window.location.pathname.split("/")[window.location.pathname.split("/").length - 2];
 
-    for(var i = 0; i < routes.length; i++){
+    for(let i = 0; i < routes.length; i++){
       if (lastPath === routes[i]) {
         return window.location.pathname = lastPath + link;
       }
@@ -26,11 +27,6 @@ const Sidebar = (props: SidebarProps) => {
     }
   }
 
-  const Replace = () => {
-    //TODO:
-    return
-  }
-
   return (
       <SidebarStyled>
         <SidebarList>
@@ -38,7 +34,7 @@ const Sidebar = (props: SidebarProps) => {
             return (
             <SidebarListItem 
               key={key} 
-              onClick={() => Router(val.link)}>
+              onClick={() => myRouter(val.link)}>
               <SidebarListItemIcon>{val.icon}</SidebarListItemIcon>
               <SidebarListItemTitle>{val.title}</SidebarListItemTitle>
             </SidebarListItem>

@@ -3,6 +3,7 @@ import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import CategoryIcon from '@mui/icons-material/Category';
 import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
 export const SidebarData = [
   {
@@ -29,5 +30,10 @@ export const SidebarData = [
     title: "Rabaty",
     icon: <LocalOfferIcon />,
     link: "/discounts"
+  },
+  {
+    title: "Powrót",
+    icon: <ExitToAppIcon />,
+    link: ""
   },
 ]
