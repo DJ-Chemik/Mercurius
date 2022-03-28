@@ -1,21 +1,20 @@
+import React from "react";
 import { ProductFilterStyle } from "./ProductView.styled";
 
 interface ProductsFilterProps {
-  onChangeFilter: (arg0: string) => void;
-  value: string;
-}
-
-interface HandlerProps {
-  target: { value: string };
+  onChangeFilter: (value: string) => void;
+  newValue: string;
 }
 
 const ProductFilter = (props: ProductsFilterProps) => {
-  const dropdownChangeHandler = (event: HandlerProps) => {
+  const dropdownChangeHandler = (
+    event: React.ChangeEvent<{ value: string }>
+  ) => {
     props.onChangeFilter(event.target.value);
   };
 
   return (
-    <ProductFilterStyle value={props.value} onChange={dropdownChangeHandler}>
+    <ProductFilterStyle value={props.newValue} onChange={dropdownChangeHandler}>
       <option value="Products">Products</option>
       <option value="Auctions">Auctions</option>
       <option value="Both">Both</option>

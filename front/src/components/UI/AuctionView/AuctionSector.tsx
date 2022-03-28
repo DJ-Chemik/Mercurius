@@ -3,7 +3,7 @@ import { AuctionProps } from "./AuctionBlock";
 import { AuctionViewList } from "./AuctionView.styled";
 
 interface AuctionSectorProps {
-  items: Array<AuctionProps>;
+  items: AuctionProps[];
 }
 
 const Auctions = (props: AuctionSectorProps) => {
@@ -14,7 +14,7 @@ const Auctions = (props: AuctionSectorProps) => {
         {props.items.map((auction: AuctionProps) => (
           <AuctionBlock
             key={auction.key}
-            auction_site={auction.auction_site}
+            site_id={auction.site_id}
             title={auction.title}
             img_src={auction.img_src}
           />
