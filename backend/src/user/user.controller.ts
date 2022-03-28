@@ -1,7 +1,7 @@
 import { Controller, Get, Param } from '@nestjs/common';
 import { UserService } from './user.service';
 
-@Controller('/getSingleUser')
+@Controller('/users')
 export class UserController {
 constructor(private readonly userService: UserService) {
 }
@@ -12,7 +12,7 @@ constructor(private readonly userService: UserService) {
         return id;
     }
 
-    @Get(':mail')
+    @Get('/byMail:mail')
     getUserByMail(@Param('mail') mail: string)
     {
         const data = {email: "email"}
