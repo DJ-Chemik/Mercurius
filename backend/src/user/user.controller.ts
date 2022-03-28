@@ -1,17 +1,13 @@
 import {UserService} from "./user.service";
-import {Controller, Get} from "@nestjs/common";
+import {Controller, Post} from "@nestjs/common";
 
-@Controller('/newuser')
-export class UserController{
-    constructor(private readonly userService: UserService){}
-
-    @Get()
-    getNewUser(){
-        const data = {email: "email", login: "name"}
-        this.userService.createUser(data);
-        console.log("Dodany")
-        return "Createuser"
-
+@Controller('createuser')
+export class UserController {
+    constructor(private readonly userService: UserService) {
     }
-
+    @Post()
+    createNewUser(email: string, name: string) {
+        const data = {email: email, login: name}
+        this.userService.createUser(data)
+    }
 }
