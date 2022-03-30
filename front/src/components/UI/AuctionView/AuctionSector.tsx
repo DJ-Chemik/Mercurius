@@ -14,9 +14,9 @@ const Auctions = (props: AuctionSectorProps) => {
         {props.items.map((auction: AuctionProps) => (
           <AuctionBlock
             key={auction.key}
-            site_id={auction.site_id}
+            siteId={auction.siteId}
             title={auction.title}
-            img_src={auction.img_src}
+            imgSrc={auction.imgSrc}
           />
         ))}
       </AuctionViewList>

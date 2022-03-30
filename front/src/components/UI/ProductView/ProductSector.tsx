@@ -15,7 +15,7 @@ const Products = (props: ProductSectorProps) => {
           <ProductBlock
             key={company.key}
             title={company.title}
-            img_src={company.img_src}
+            imgSrc={company.imgSrc}
           />
         ))}
       </ProductViewList>

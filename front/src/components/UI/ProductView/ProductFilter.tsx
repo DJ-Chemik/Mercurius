@@ -1,6 +1,12 @@
 import React from "react";
 import { ProductFilterStyle } from "./ProductView.styled";
 
+export enum SetNewValue {
+  PRODUCTS = "Products",
+  AUCTIONS = "Auctions",
+  BOTH = "Both",
+}
+
 interface ProductsFilterProps {
   onChangeFilter: (value: string) => void;
   newValue: string;
@@ -15,9 +21,9 @@ const ProductFilter = (props: ProductsFilterProps) => {
 
   return (
     <ProductFilterStyle value={props.newValue} onChange={dropdownChangeHandler}>
-      <option value="Products">Products</option>
-      <option value="Auctions">Auctions</option>
-      <option value="Both">Both</option>
+      <option value={SetNewValue.PRODUCTS}>Products</option>
+      <option value={SetNewValue.AUCTIONS}>Auctions</option>
+      <option value={SetNewValue.BOTH}>Both</option>
     </ProductFilterStyle>
   );
 };
