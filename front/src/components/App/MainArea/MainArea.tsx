@@ -5,14 +5,12 @@ import Header from "../../UI/Header/Header";
 import { APP_PAGE } from "../App"
 import { MainAreaStyled } from "./MainArea.styled"
 
-
 const MainArea = () => {
 
   return (
     <div>
       <MainAreaStyled>
         <Header/>
-        <ReactLogo />
         <RouteLink to={APP_PAGE.SALES}>
           <Button title="Panel sprzedaży" />
         </RouteLink>
@@ -25,9 +23,8 @@ const MainArea = () => {
         <RouteLink to={APP_PAGE.HELP}>
           <Button title="Pomoc" />
         </RouteLink>
-      </MainAreaStyled>
-    </div>
-
+      </MainAreaStyled >
+    </div >
   )
 }
 
