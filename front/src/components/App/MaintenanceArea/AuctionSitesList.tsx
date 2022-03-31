@@ -1,21 +1,21 @@
 import React from "react";
-import crudFunctions from "./Utils";
+import {deleteAucitonSite} from "./Utils";
+import {AuctionSite, AuctionSitesInterface} from "./AuctionSitesManagement";
 
-const auctionSitesList = (props: { setAuctionSites: (arg0: any[]) => void; auctionSites: any }) => {
-
+const AuctionSitesList = (auctionInterface: AuctionSitesInterface) => {
   return (
       <ul>
-        {props.auctionSites.map(function (item: string) {
+        {auctionInterface.auctionSites.map(function (item: AuctionSite) {
               if (!item) {
                 return false
               } else {
                 return (
-                    <li key={item}>
-                      {item}
+                    <li key={item.name}>
+                      {item.name}
                       <button onClick={(e) => {
                         e.preventDefault();
-                        props.setAuctionSites([...crudFunctions(props.auctionSites, "delete", item)])
-                      }} value={item}>Usuń
+                        auctionInterface.setAuctionSites([...deleteAucitonSite(auctionInterface.auctionSites, item)])
+                      }} value={item.name}>Usuń
                       </button>
                     </li>
                 );
@@ -25,5 +25,4 @@ const auctionSitesList = (props: { setAuctionSites: (arg0: any[]) => void; aucti
       </ul>
   )
 }
-export default auctionSitesList
-//
+export default AuctionSitesList

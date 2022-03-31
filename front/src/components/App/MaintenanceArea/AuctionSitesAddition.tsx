@@ -1,12 +1,21 @@
 import React from "react";
-import crudFunctions from "./Utils";
+import {addAuctionSite} from "./Utils";
+import {AuctionSite, AuctionSitesInterface, FormValues} from "./AuctionSitesManagement";
 
-const auctionSitesAddition = (props: { setAuctionSites: (arg0: any[]) => void; auctionSites: any; setName: (arg0: any) => void; name: any }) => {
+const AuctionSitesAddition = (props: { auctionInterface: AuctionSitesInterface, currentInput: FormValues }) => {
 
-  const addElement = (e: any) => {
+  const addElement = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
-    props.setAuctionSites([...crudFunctions(props.auctionSites, "add", props.name)])
-    props.setName("")
+    const newAuction: AuctionSite = {
+      name: props.currentInput.currentName
+    }
+    props.auctionInterface.setAuctionSites([...addAuctionSite(props.auctionInterface.auctionSites, newAuction)])
+    props.currentInput.setCurrentName("")
+  }
+
+  const updateCurrentName = (e: { preventDefault: () => void; target: { value: string; }; }) => {
+    e.preventDefault();
+    props.currentInput.setCurrentName(e.target.value)
   }
 
   return (
@@ -15,16 +24,14 @@ const auctionSitesAddition = (props: { setAuctionSites: (arg0: any[]) => void; a
           <label> Nazwa portalu </label>
           <input type={"text"}
                  name={""}
-                 placeholder={"Name"}
-                 value={props.name}
-                 onChange={(e) => {
-                   e.preventDefault();
-                   props.setName(e.target.value)
-                 }}
+                 placeholder={""}
+                 value={props.currentInput.currentName}
+                 onChange={updateCurrentName}
           />
-          <button>Add</button>
+          <button>Dodaj</button>
         </form>
       </div>
   )
 }
-export default auctionSitesAddition
+
+export default AuctionSitesAddition

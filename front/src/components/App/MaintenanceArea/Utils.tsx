@@ -1,33 +1,33 @@
 import React from "react";
+import {AuctionSite} from "./AuctionSitesManagement";
 
-function crudFunctions(auctionSites: any, action: string, item: any) {
-
-  switch (action) {
-
-    case("add"): {
-      if (!auctionSites.includes(item)) {
-        auctionSites = [...auctionSites, item]
-      } else {
-        alert("Wartość nie może być pusta ani się powtarzać")
-      }
-      break;
-    }
-
-    case ("delete"): {
-      auctionSites = [...auctionSites.filter(function (element: any) {
-        return element !== item
-      })]
-      break;
-    }
-
-    default: {
-      console.log("Nieprawidłowa opcja w CRUD!");
-      break;
+const existsThisName = (auctionSites: AuctionSite[], item: AuctionSite) => {
+  if (!auctionSites || item.name === "")
+    return true
+  for (let i = 0; i < auctionSites.length; i++) {
+    if (auctionSites[i].name === item.name) {
+      return true
     }
   }
-
-  return auctionSites
-
+  return false
 }
 
-export default crudFunctions
+export function addAuctionSite(auctionSites: AuctionSite[], item: AuctionSite) {
+  if (!existsThisName(auctionSites, item)) {
+    if (auctionSites) {
+      auctionSites = [...auctionSites, item]
+    } else {
+      auctionSites = [item]
+    }
+  } else {
+    alert("Wartość nie może być pusta ani się powtarzać")
+  }
+  return auctionSites;
+}
+
+export function deleteAucitonSite(auctionSites: AuctionSite[], item: AuctionSite) {
+  auctionSites = [...auctionSites.filter(function (element: AuctionSite) {
+    return element.name !== item.name
+  })]
+  return auctionSites;
+}
