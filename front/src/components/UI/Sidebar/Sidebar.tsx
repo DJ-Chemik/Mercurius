@@ -1,48 +1,57 @@
-import { SidebarStyled, SidebarList, SidebarListItem, SidebarListItemIcon, SidebarListItemTitle } from "./Sidebar.styled"
+import {
+  SidebarStyled,
+  SidebarList,
+  SidebarListItem,
+  SidebarListItemIcon,
+  SidebarListItemTitle,
+} from "./Sidebar.styled";
+
+import { MaintenanceAreaSidebarInterface } from "../../App/MaintenanceArea/MaintenanceArea.sidebarData";
 
 interface SidebarProps {
-  data: {
-    title: string;
-    icon?: JSX.Element;
-    link: string;
-  }[]
+  data: MaintenanceAreaSidebarInterface[];
   onClick?: React.MouseEventHandler<HTMLInputElement>;
 }
 
 const Sidebar = (props: SidebarProps) => {
-
   const myRouter = (link: string) => {
+    const mainRoutes = [
+      "/",
+      "help",
+      "maintenance",
+      "statistics",
+      "sales",
+      "product",
+    ];
 
-    const routes = ['/', '/help','maintenance','/statistics','/sales','/product'];
-    var lastPath = window.location.pathname.split("/").pop();
-    var newUrl = window.location.pathname.split("/")[window.location.pathname.split("/").length - 2];
+    let lastPath = window.location.pathname.split("/").pop();
+    let newUrl =
+      window.location.pathname.split("/")[
+        window.location.pathname.split("/").length - 2
+      ];
 
-    for(let i = 0; i < routes.length; i++){
-      if (lastPath === routes[i]) {
-        return window.location.pathname = lastPath + link;
-      }
-      if (newUrl === routes[i]) {
-        return window.location.pathname = newUrl + link;
-      }
-    }
-  }
+    mainRoutes.find((item) => {
+      if (lastPath === item)
+        return (window.location.pathname = lastPath + link);
+      else if (newUrl === item)
+        return (window.location.pathname = newUrl + link);
+    });
+  };
 
   return (
-      <SidebarStyled>
-        <SidebarList>
-          {props.data.map((val, key) => {
-            return (
-            <SidebarListItem 
-              key={key} 
-              onClick={() => myRouter(val.link)}>
+    <SidebarStyled>
+      <SidebarList>
+        {props.data.map((val, key) => {
+          return (
+            <SidebarListItem key={key} onClick={() => myRouter(val.link)}>
               <SidebarListItemIcon>{val.icon}</SidebarListItemIcon>
               <SidebarListItemTitle>{val.title}</SidebarListItemTitle>
             </SidebarListItem>
-            );
-          })}
-        </SidebarList>
-      </SidebarStyled>
+          );
+        })}
+      </SidebarList>
+    </SidebarStyled>
   );
-}
+};
 
 export default Sidebar;

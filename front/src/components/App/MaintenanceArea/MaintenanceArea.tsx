@@ -1,74 +1,87 @@
 import Button from "../../UI/Button/Button";
 import RouteLink from "../../UI/RouteLink/RouteLink.styled";
 import { APP_PAGE } from "../App";
-import { MaintenanceAreaStyled, MaintenanceAreaHeader, MaintenanceAreaTitle, MaintenanceAreaContent } from "./MaintenanceArea.styled"
-import Sidebar from "../../UI/Sidebar/Sidebar"
-import { SidebarData } from "./MaintenanceArea.sidebarData";
+import {
+  MaintenanceAreaStyled,
+  MaintenanceAreaHeader,
+  MaintenanceAreaTitle,
+  MaintenanceAreaContent,
+} from "./MaintenanceArea.styled";
+import Sidebar from "../../UI/Sidebar/Sidebar";
+import {
+  SidebarData,
+  routes,
+  titles,
+  content,
+} from "./MaintenanceArea.sidebarData";
 
 const MaintenanceArea = () => {
+  const lastPath = window.location.pathname.split("maintenance").pop();
 
-    const routes = ['maintenance','products','orders','clients','returns','discounts']
-    const lastPath = window.location.pathname.split("/").pop();
-
-    const changeTitles = () => {
-        const display = ['Witaj w panelu administracyjnym!','Produkty','Zamówienia','Klienci','Zwroty','Rabaty']
-        const lastPath = window.location.pathname.split("/").pop();
-        for (var i = 0; i < routes.length; i++) {
-            if (lastPath === routes[i]) {
-                return display[i];
-            }
-        }
+  const changeTitles = () => {
+    switch (lastPath) {
+      case routes.home:
+        return titles.home;
+      case routes.products:
+        return titles.products;
+      case routes.orders:
+        return titles.orders;
+      case routes.clients:
+        return titles.clients;
+      case routes.returns:
+        return titles.returns;
+      case routes.discounts:
+        return titles.discounts;
     }
+  };
 
-    const changeContent = () => {
-        var text = '';
-        if(lastPath === routes[0]) {
-            text = 'Wybierz pozycję z Sidebaru 🥳';
-        }
-        if(lastPath === routes[1]) {
-            text = 'Lista produktów:';
-            return (
-                <MaintenanceAreaContent>
-                    <Button title='Lista produktów'></Button>
-                    <RouteLink to={APP_PAGE.PRODUCT}>
-                        <Button title="Dodaj produkt"></Button>
-                    </RouteLink>
-                </MaintenanceAreaContent>
-            )
-        }
-        if(lastPath === routes[2]) {
-            text = 'Aktualnie nie mamy zamówień 😟';
-        }
-        if(lastPath === routes[3]) {
-            text = 'RODO MAMY BYCZQ 🤯';
-        }
-        if(lastPath === routes[4]) {
-            text = 'Aktualnie nie mamy zwrotów! Hurra! 😃';
-        }
-        if(lastPath === routes[5]) {
-            text = 'Rabatów się zachciało hurr durr 🤬';
-        }
+  const changeContent = () => {
+    switch (lastPath) {
+      case routes.home:
+        return content.home;
+      case routes.orders:
+        return content.orders;
+      case routes.clients:
+        return content.clients;
+      case routes.returns:
+        return content.returns;
+      case routes.discounts:
+        return content.discounts;
+    }
+  };
+
+  const changeDiv = () => {
+    switch (lastPath) {
+      case routes.products:
         return (
-            <MaintenanceAreaContent>
-                {text}
-            </MaintenanceAreaContent>
-        )
-    }
-    
-    const title = changeTitles();
-    const content = changeContent();
-
-    return (
-        <MaintenanceAreaStyled>
-            <MaintenanceAreaHeader>Panel administracyjny</MaintenanceAreaHeader>
-            <MaintenanceAreaTitle>{title}</MaintenanceAreaTitle>
-            {content}
-            <Sidebar data={SidebarData} />
-            <RouteLink to={APP_PAGE.HOME}>
-                <Button title="Powrót do strony głównej" />
+          <MaintenanceAreaContent>
+            <Button title="Lista produktów"></Button>
+            <RouteLink to={APP_PAGE.PRODUCT}>
+              <Button title="Dodaj produkt"></Button>
             </RouteLink>
-        </MaintenanceAreaStyled>
-    )
-}
+          </MaintenanceAreaContent>
+        );
+      default:
+        return (
+          <MaintenanceAreaContent>{changeContent()}</MaintenanceAreaContent>
+        );
+    }
+  };
+
+  const title = changeTitles();
+  const myDiv = changeDiv();
+
+  return (
+    <MaintenanceAreaStyled>
+      <MaintenanceAreaHeader>Panel administracyjny</MaintenanceAreaHeader>
+      <MaintenanceAreaTitle>{title}</MaintenanceAreaTitle>
+      {myDiv}
+      <Sidebar data={SidebarData} />
+      <RouteLink to={APP_PAGE.HOME}>
+        <Button title="Powrót do strony głównej" />
+      </RouteLink>
+    </MaintenanceAreaStyled>
+  );
+};
 
 export default MaintenanceArea;
