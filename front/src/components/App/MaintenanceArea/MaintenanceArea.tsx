@@ -3,9 +3,7 @@ import RouteLink from "../../UI/RouteLink/RouteLink.styled";
 import {APP_PAGE} from "../App";
 import AuctionSitesManagement from "./AuctionSitesManagement";
 
-
 const MaintenanceArea = () => {
-
   return (
       <div>
         Maintenence
