@@ -5,30 +5,30 @@ import RemoveShoppingCartIcon from "@mui/icons-material/RemoveShoppingCart";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 
-export enum routes {
-  home = "",
-  products = "/products",
-  orders = "/orders",
-  clients = "/clients",
-  returns = "/returns",
-  discounts = "/discounts",
+export enum ROUTES {
+  HOME = "",
+  PRODUCTS = "/products",
+  ORDERS = "/orders",
+  CLIENTS = "/clients",
+  RETURNS = "/returns",
+  DISCOUNTS = "/discounts",
 }
 
-export enum titles {
-  home = "Witaj w panelu administracyjnym!",
-  products = "Produkty",
-  orders = "Zamówienia",
-  clients = "Klienci",
-  returns = "Zwroty",
-  discounts = "Rabaty",
+export enum TITLES {
+  HOME = "Witaj w panelu administracyjnym!",
+  PRODUCTS = "Produkty",
+  ORDERS = "Zamówienia",
+  CLIENTS = "Klienci",
+  RETURNS = "Zwroty",
+  DISCOUNTS = "Rabaty",
 }
 
-export enum content {
-  home = "Wybierz pozycję z Sidebaru 🥳",
-  orders = "Aktualnie nie mamy zamówień 😟",
-  clients = "RODO MAMY BYCZQ 🤯",
-  returns = "Aktualnie nie mamy zwrotów! Hurra! 😃",
-  discounts = "Rabatów się zachciało hurr durr 🤬",
+export enum CONTENT {
+  HOME = "Wybierz pozycję z Sidebaru 🥳",
+  ORDERS = "Brak zamówień 😟",
+  CLIENTS = "RODO MAMY BYCZQ 🤯",
+  RETURNS = "Aktualnie nie mamy zwrotów! Hurra! 😃",
+  DISCOUNTS = "Rabatów się zachciało hurr durr 🤬",
 }
 
 export interface MaintenanceAreaSidebarInterface {
@@ -37,35 +37,35 @@ export interface MaintenanceAreaSidebarInterface {
   link: string;
 }
 
-export const SidebarData: MaintenanceAreaSidebarInterface[] = [
+export const sidebarData: MaintenanceAreaSidebarInterface[] = [
   {
     title: "Produkty",
     icon: <CategoryIcon />,
-    link: routes.products,
+    link: ROUTES.PRODUCTS,
   },
   {
     title: "Zamówienia",
     icon: <ShoppingBagIcon />,
-    link: routes.orders,
+    link: ROUTES.ORDERS,
   },
   {
     title: "Klienci",
     icon: <GroupIcon />,
-    link: routes.clients,
+    link: ROUTES.CLIENTS,
   },
   {
     title: "Zwroty",
     icon: <RemoveShoppingCartIcon />,
-    link: routes.returns,
+    link: ROUTES.RETURNS,
   },
   {
     title: "Rabaty",
     icon: <LocalOfferIcon />,
-    link: routes.discounts,
+    link: ROUTES.DISCOUNTS,
   },
   {
     title: "Powrót",
     icon: <ExitToAppIcon />,
-    link: routes.home,
+    link: ROUTES.HOME,
   },
 ];
