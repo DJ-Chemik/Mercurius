@@ -16,10 +16,11 @@ import {
 } from "./MaintenanceArea.sidebarData";
 
 const MaintenanceArea = () => {
-  const parentPage = window.location.pathname.split("maintenance").pop();
+  const sidebarSubpage = window.location.pathname.split("maintenance").pop();
+  console.log(sidebarSubpage);
 
-  const changeTITLES = () => {
-    switch (parentPage) {
+  const changeTitles = () => {
+    switch (sidebarSubpage) {
       case ROUTES.HOME:
         return TITLES.HOME;
       case ROUTES.PRODUCTS:
@@ -35,8 +36,8 @@ const MaintenanceArea = () => {
     }
   };
 
-  const changeCONTENT = () => {
-    switch (parentPage) {
+  const changeContent = () => {
+    switch (sidebarSubpage) {
       case ROUTES.HOME:
         return CONTENT.HOME;
       case ROUTES.ORDERS:
@@ -51,7 +52,7 @@ const MaintenanceArea = () => {
   };
 
   const changeDiv = () => {
-    switch (parentPage) {
+    switch (sidebarSubpage) {
       case ROUTES.PRODUCTS:
         return (
           <MaintenanceAreaContent>
@@ -63,12 +64,12 @@ const MaintenanceArea = () => {
         );
       default:
         return (
-          <MaintenanceAreaContent>{changeCONTENT()}</MaintenanceAreaContent>
+          <MaintenanceAreaContent>{changeContent()}</MaintenanceAreaContent>
         );
     }
   };
 
-  const title = changeTITLES();
+  const title = changeTitles();
   const myDiv = changeDiv();
 
   return (

@@ -7,7 +7,6 @@ import {
 } from "./Sidebar.styled";
 import { MaintenanceAreaSidebarInterface } from "../../App/MaintenanceArea/MaintenanceArea.sidebarData";
 import { APP_PAGE } from "../../App/App";
-import { listOfPaths } from "./Sidebar.URL";
 
 interface SidebarProps {
   data: MaintenanceAreaSidebarInterface[];
@@ -16,6 +15,15 @@ interface SidebarProps {
 
 const Sidebar = (props: SidebarProps) => {
   const changeRoute = (link: string) => {
+    const sidebarSubpage = "/" + window.location.pathname.split("/").pop();
+    const parentPage =
+      "/" +
+      window.location.pathname.split("/")[
+        window.location.pathname.split("/").length - 2
+      ];
+
+    const listOfPaths = [sidebarSubpage, parentPage];
+
     const findPath = (item: string) => {
       switch (item) {
         case APP_PAGE.HOME:
@@ -34,7 +42,7 @@ const Sidebar = (props: SidebarProps) => {
           return (window.location.pathname = APP_PAGE.PRODUCT + link);
       }
     };
-    listOfPaths.find((item) => findPath(item));
+    return listOfPaths.find((link) => findPath(link));
   };
 
   return (
