@@ -17,7 +17,6 @@ import {
 
 const MaintenanceArea = () => {
   const sidebarSubpage = window.location.pathname.split("maintenance").pop();
-  console.log(sidebarSubpage);
 
   const changeTitles = () => {
     switch (sidebarSubpage) {
