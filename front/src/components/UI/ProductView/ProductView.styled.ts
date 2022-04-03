@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CompanyStyle = styled.li`
+export const ProductViewStyle = styled.li`
   display: flex;
   flex-direction: column;
   width: 15rem;
@@ -14,7 +14,20 @@ export const CompanyStyle = styled.li`
   margin: 2rem auto;
 `;
 
-export const CompanyText = styled.div`
+export const ProductViewText = styled.div`
   font-size: 1.5rem;
   font-weight: bold;
+`;
+
+export const ProductViewList = styled.ul`
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin-top: 0;
+`;
+
+export const ProductFilterStyle = styled.select`
+  padding: 0.5rem 3rem;
+  font-weight: bold;
+  border-radius: 4px;
 `;
