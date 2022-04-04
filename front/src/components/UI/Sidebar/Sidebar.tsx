@@ -45,18 +45,18 @@ const Sidebar = (props: SidebarProps) => {
     return listOfPaths.find((link) => findPath(link));
   };
 
+  const renderSidebarElements = props.data.map((val, key) => {
+    return (
+      <SidebarListItem key={key} onClick={() => changeRoute(val.link)}>
+        <SidebarListItemIcon>{val.icon}</SidebarListItemIcon>
+        <SidebarListItemTitle>{val.title}</SidebarListItemTitle>
+      </SidebarListItem>
+    );
+  });
+
   return (
     <SidebarStyled>
-      <SidebarList>
-        {props.data.map((val, key) => {
-          return (
-            <SidebarListItem key={key} onClick={() => changeRoute(val.link)}>
-              <SidebarListItemIcon>{val.icon}</SidebarListItemIcon>
-              <SidebarListItemTitle>{val.title}</SidebarListItemTitle>
-            </SidebarListItem>
-          );
-        })}
-      </SidebarList>
+      <SidebarList>{renderSidebarElements}</SidebarList>
     </SidebarStyled>
   );
 };

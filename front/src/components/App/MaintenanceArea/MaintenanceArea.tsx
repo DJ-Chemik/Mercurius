@@ -17,7 +17,7 @@ import {
 
 const MaintenanceArea = () => {
   const sidebarSubpage = window.location.pathname.split("maintenance").pop();
-
+  console.log(sidebarSubpage);
   const changeTitles = () => {
     switch (sidebarSubpage) {
       case ROUTES.HOME:
@@ -69,13 +69,13 @@ const MaintenanceArea = () => {
   };
 
   const title = changeTitles();
-  const myDiv = changeDiv();
+  const sidebarSubpageContent = changeDiv();
 
   return (
     <MaintenanceAreaStyled>
       <MaintenanceAreaHeader>Panel administracyjny</MaintenanceAreaHeader>
       <MaintenanceAreaTitle>{title}</MaintenanceAreaTitle>
-      {myDiv}
+      {sidebarSubpageContent}
       <Sidebar data={sidebarData} />
       <RouteLink to={APP_PAGE.HOME}>
         <Button title="Powrót do strony głównej" />
