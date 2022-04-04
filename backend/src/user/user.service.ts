@@ -7,7 +7,7 @@ import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
 export class UserService {
-  constructor(private prisma: PrismaService) {}
+  constructor(private prisma: PrismaService) { }
 
   async user(userWhereUniqueInput: Prisma.UserWhereUniqueInput): Promise<User | null> {
     return this.prisma.user.findUnique({
@@ -49,9 +49,16 @@ export class UserService {
     });
   }
 
-  async deleteUser(where: Prisma.UserWhereUniqueInput): Promise<User> {
-    return this.prisma.user.delete({
-      where,
-    });
+  async deleteUser(id: string): Promise<string | User> {
+    try {
+      const userId = parseInt(id);
+      return await this.prisma.user.delete({
+        where: {
+          id: userId,
+        }
+      });
+    } catch (error) {
+      return `Error during deleting user by id: ${id}`;
+    }
   }
 }
