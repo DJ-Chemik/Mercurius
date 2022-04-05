@@ -12,6 +12,9 @@ export class UserService {
     });
   }
 
+  async say(){
+    return 'hellooooo';
+  }
   async users(params: {
     skip?: number;
     take?: number;
