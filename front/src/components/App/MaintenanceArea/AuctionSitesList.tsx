@@ -1,25 +1,28 @@
 import React from "react";
 import {deleteAucitonSite} from "./Utils";
-import {AuctionSite, AuctionSitesInterface} from "./AuctionSitesManagement";
+import {AuctionSite} from "./AuctionSitesManagement";
+import {AuctionSitesInterface} from './AuctionSitesAddition'
 
 const AuctionSitesList = (auctionInterface: AuctionSitesInterface) => {
+
+  const handleDeletion = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    auctionInterface.setAuctionsSites([...deleteAucitonSite(auctionInterface.auctionsSites, e.currentTarget.value)])
+  }
+
   return (
       <ul>
-        {auctionInterface.auctionSites.map(function (item: AuctionSite) {
+        {auctionInterface.auctionsSites.map((item: AuctionSite) => {
               if (!item) {
                 return false
-              } else {
-                return (
-                    <li key={item.name}>
-                      {item.name}
-                      <button onClick={(e) => {
-                        e.preventDefault();
-                        auctionInterface.setAuctionSites([...deleteAucitonSite(auctionInterface.auctionSites, item)])
-                      }} value={item.name}>Usuń
-                      </button>
-                    </li>
-                );
               }
+              return (
+                  <li key={item.name}>
+                    {item.name}
+                    <button onClick={handleDeletion} value={item.name}>Usuń</button>
+                  </li>
+              );
+
             }
         )}
       </ul>
