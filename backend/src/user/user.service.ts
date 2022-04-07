@@ -1,8 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import {
-  User,
-  Prisma
-} from '@prisma/client';
+import { User, Prisma } from '@prisma/client';
 import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
@@ -15,6 +12,9 @@ export class UserService {
     });
   }
 
+  async say(){
+    return 'hellooooo';
+  }
   async users(params: {
     skip?: number;
     take?: number;
