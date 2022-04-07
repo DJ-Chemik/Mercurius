@@ -10,8 +10,8 @@ interface InternalValues {
 const ProductPicture: React.FC = () =>  {
 
   const values =
-   useRef <
-   InternalValues > 
+   useRef (
+   InternalValues )
     {
       file: false,
     };
