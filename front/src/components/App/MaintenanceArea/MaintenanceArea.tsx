@@ -6,7 +6,7 @@ import AuctionSitesManagement from "./AuctionSitesManagement";
 const MaintenanceArea = () => {
   return (
       <div>
-        Maintenence
+        Panel administracyjny
         <AuctionSitesManagement/>
         <RouteLink to={APP_PAGE.HOME}>
           <Button title="Powrót do strony głównej"/>

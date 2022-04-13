@@ -1,43 +1,40 @@
 import React from "react";
-import {existsThisName} from "./Utils";
+import {validateName} from "./Utils";
 import {AuctionSite} from "./AuctionSitesManagement";
 
-export interface AuctionSitesInterface {
+export interface AuctionSitesProps {
   setAuctionsSites: React.Dispatch<React.SetStateAction<AuctionSite[]>>;
   auctionsSites: AuctionSite[];
+}
 
-  FormValues?: {
-    setCurrentName: React.Dispatch<React.SetStateAction<string>>,
-    currentName: string,
-  }
+export interface FormValues extends AuctionSitesProps{
+  setCurrentName: React.Dispatch<React.SetStateAction<string>>,
+  currentName: string,
 }
 
 
-const AuctionSitesAddition = (props: AuctionSitesInterface) => {
+const AuctionSitesAddition = (props: FormValues) => {
 
   const addElement = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const newAuction: AuctionSite = {
-      name: props.FormValues?.currentName || "null"
+      name: props.currentName
     }
 
-    const result = () => {
-      if (!existsThisName(props.auctionsSites, newAuction) && newAuction.name !== "null") {
-        return [...props.auctionsSites, newAuction]
-      } else {
-        alert("Wartość nie może być pusta ani się powtarzać")
-      }
-      return [...props.auctionsSites]
+    if(validateName(props.auctionsSites, newAuction)){
+      props.setAuctionsSites([...props.auctionsSites, newAuction])
+    }
+    else {
+      alert("Wartość nie może być pusta ani się powtarzać")
     }
 
-    props.setAuctionsSites([...result()])
-    props.FormValues?.setCurrentName("")
+    props.setCurrentName("")
   }
 
   const updateCurrentName = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
-    props.FormValues?.setCurrentName(e.target.value)
+    props.setCurrentName(e.target.value)
   }
 
   return (
@@ -47,10 +44,10 @@ const AuctionSitesAddition = (props: AuctionSitesInterface) => {
           <input type={"text"}
                  name={""}
                  placeholder={""}
-                 value={props.FormValues?.currentName}
+                 value={props.currentName}
                  onChange={updateCurrentName}
           />
-          <button>Dodaj</button>
+          <button type={"submit"}>Dodaj</button>
         </form>
       </div>
   )
