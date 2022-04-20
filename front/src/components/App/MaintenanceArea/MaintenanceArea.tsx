@@ -1,5 +1,6 @@
 import Button from "../../UI/Button/Button";
 import RouteLink from "../../UI/RouteLink/RouteLink.styled";
+import AuctionSitesManagement from "./AuctionSitesManagement";
 import { APP_PAGE } from "../App";
 import {
   MaintenanceAreaStyled,
