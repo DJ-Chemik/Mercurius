@@ -1,4 +1,4 @@
-import ProductDates from "../../UI/ProductPicture/ProductPicture";
+import ProductPicture from "../../UI/ProductPicture/ProductPicture";
 import ProductNames from "../../UI/ProductNames/ProductNames";
 import ProductPrices from "../../UI/ProductPrices/ProductPrices";
 import Button from "../../UI/Button/Button";
@@ -15,7 +15,7 @@ const ProductArea = () => {
           <ProductNames />
           <ProductPrices />
         </FirstRow>
-        <ProductDates />
+        <ProductPicture />
         <Send>
           <input type="submit" value="Wyślij" />
         </Send>
