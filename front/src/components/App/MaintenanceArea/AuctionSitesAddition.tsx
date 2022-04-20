@@ -2,18 +2,15 @@ import React from "react";
 import {validateName} from "./Utils";
 import {AuctionSite} from "./AuctionSitesManagement";
 
-export interface AuctionSitesProps {
+interface Props {
   setAuctionsSites: React.Dispatch<React.SetStateAction<AuctionSite[]>>;
   auctionsSites: AuctionSite[];
-}
-
-export interface FormValues extends AuctionSitesProps{
   setCurrentName: React.Dispatch<React.SetStateAction<string>>,
   currentName: string,
 }
 
 
-const AuctionSitesAddition = (props: FormValues) => {
+const AuctionSitesAddition = (props: Props) => {
 
   const addElement = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -22,10 +19,9 @@ const AuctionSitesAddition = (props: FormValues) => {
       name: props.currentName
     }
 
-    if(validateName(props.auctionsSites, newAuction)){
+    if (validateName(props.auctionsSites, newAuction)) {
       props.setAuctionsSites([...props.auctionsSites, newAuction])
-    }
-    else {
+    } else {
       alert("Wartość nie może być pusta ani się powtarzać")
     }
 

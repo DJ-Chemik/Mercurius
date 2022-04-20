@@ -11,3 +11,4 @@ export function deleteAucitonSite(auctionSites: AuctionSite[], auctionSiteName: 
   })]
   return auctionSites;
 }
+

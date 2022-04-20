@@ -1,13 +1,16 @@
 import React from "react";
 import {deleteAucitonSite} from "./Utils";
 import {AuctionSite} from "./AuctionSitesManagement";
-import {AuctionSitesProps} from './AuctionSitesAddition'
+
+export interface AuctionSitesProps {
+  setAuctionsSites: React.Dispatch<React.SetStateAction<AuctionSite[]>>;
+  auctionsSites: AuctionSite[];
+}
 
 const AuctionSitesList = (props: AuctionSitesProps) => {
 
   const confirmedDeletion = (auctionSiteName: string) =>{
-    return window.confirm("Na pewno chcesz usunąć stronę aukcyjną o nazwie "+ auctionSiteName+
-        " oraz wszystkie dane z nią powiązane?")
+    return window.confirm(`Na pewno chcesz usunąć stronę aukcyjną o nazwie "${auctionSiteName}" oraz wszystkie dane z nią powiązane?`)
   }
 
   const handleDeletion = (e: React.MouseEvent<HTMLButtonElement>) => {
