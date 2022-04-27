@@ -1,18 +1,39 @@
 import { ProductViewStyle } from "./ProductView.styled";
 import { ProductViewText } from "./ProductView.styled";
+import { useHistory } from "react-router";
+import { Router } from "react-router";
 
 export interface ProductProps {
   key: string;
-  title: string;
-  imgSrc: string;
+  name: string
+  description: string
+  category: string
+  amount: number
+  price: number
 }
 
 const ProductBlock = (props: ProductProps) => {
+  const history = useHistory();
+  
+    const navigateTo = () => {
+        history.push({
+          pathname: '/product',
+          state: {
+            description: props.description,
+            name: props.name,
+            category: props.category,
+            amount: props.amount,
+            price: props.price
+          }
+        })
+    }
   return (
-    <ProductViewStyle>
-      <img src={props.imgSrc} alt="logo" width="240" height="120" />
-      <ProductViewText>{props.title}</ProductViewText>
+    <div onClick={navigateTo}>
+    <ProductViewStyle key={props.key}>
+      <ProductViewText>{props.name}</ProductViewText>
     </ProductViewStyle>
+    <Router history={history}/>
+    </div>
   );
 };
 

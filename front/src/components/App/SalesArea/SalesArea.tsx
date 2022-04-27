@@ -2,74 +2,78 @@ import Button from "../../UI/Button/Button";
 import Header from "../../UI/Header/Header";
 import RouteLink from "../../UI/RouteLink/RouteLink.styled";
 import { APP_PAGE } from "../App";
-import sony_image from "../../Images/sony.jpg";
-import jbl_image from "../../Images/jbl.jpg";
-import steelseries_image from "../../Images/myszka.jpg";
 import Products from "../../UI/ProductView/ProductSector";
 import { SalesAreaStyled } from "./SalesArea.styled";
 import Auctions from "../../UI/AuctionView/AuctionSector";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ProductFilter from "../../UI/ProductView/ProductFilter";
 import { SetNewValue } from "../../UI/ProductView/ProductFilter";
+import axios from "axios";
+import AuctionFilter from "../../UI/ActionInput/ActionFilter";
+import AddProduct from '../../UI/ActionInput/AddProduct';
+import DeleteProduct from '../../UI/ActionInput/DeleteProduct';
+import UpdateProduct from '../../UI/ActionInput/UpdateProduct';
+import AddAuction from '../../UI/ActionInput/AddAuction';
+import DeleteAuction from '../../UI/ActionInput/DeleteAuction';
+import UpdateAuction from '../../UI/ActionInput/UpdateAuction';
+import { SetNewAction } from "../../UI/ActionInput/ActionFilter";
 
-const EXAMPLES_PRODUCTS = [
-  {
-    key: "1",
-    title: "TV Sony",
-    imgSrc: sony_image,
-  },
-  {
-    key: "2",
-    title: "Słuchawki JBL",
-    imgSrc: jbl_image,
-  },
-  {
-    key: "3",
-    title: "Mysz Steelseries",
-    imgSrc: steelseries_image,
-  },
-];
-
-const EXAMPLES_AUCTIONS = [
-  {
-    key: "1",
-    siteId: "Allegro",
-    title: "TV Sony",
-    imgSrc: sony_image,
-  },
-  {
-    key: "2",
-    siteId: "Allegro",
-    title: "Słuchawki JBL",
-    imgSrc: jbl_image,
-  },
-  {
-    key: "3",
-    siteId: "Allegro",
-    title: "Mysz Steelseries",
-    imgSrc: steelseries_image,
-  },
-  {
-    key: "4",
-    siteId: "OLX",
-    title: "Mysz Steelseries",
-    imgSrc: steelseries_image,
-  },
-];
+export const isEmpty = (value:string) => value.trim() === '';
 
 const SalesArea = () => {
   const [value, setValue] = useState<string>(SetNewValue.PRODUCTS);
-  const [productsExamples, setProductsExamples] = useState(EXAMPLES_PRODUCTS);
-  const [auctionsExamples, setAuctionsExamples] = useState(EXAMPLES_AUCTIONS);
+  const [action, setAction] = useState<string>(SetNewAction.ADD_PRODUCT);
+  const [productsExamples, setProductsExamples] = useState([]);
+  const [auctionsExamples, setAuctionsExamples] = useState([]);
+
+  useEffect(() => {
+    getProducts();
+    getAuctions();
+  }, []);
+
+  const getProducts=() => {
+  axios.get('http://localhost:4000/products')
+  .then((response) => {
+    let data = (response.data);
+    setProductsExamples(data)
+  });
+}
+
+const getAuctions=() => {
+  axios.get('http://localhost:4000/auctionsites')
+  .then((response) => {
+    let data = (response.data);
+    setAuctionsExamples(data)
+});
+}
+
+
+
 
   const handleChange = (selected: string) => {
     setValue(selected);
+  };
+
+  const actionHandleChange = (selected: string) => {
+    setAction(selected);
   };
 
   const shouldDisplayProducts =
     (value === SetNewValue.PRODUCTS || value === SetNewValue.BOTH);
   const shouldDisplayAuctions =
     (value === SetNewValue.AUCTIONS || value === SetNewValue.BOTH);
+    const shouldDisplayAdding =
+    (action === SetNewAction.ADD_PRODUCT);
+  const shouldDisplayUpdating =
+    (action === SetNewAction.UPDATE_PRODUCT);
+    const shouldDisplayDeleting =
+    (action === SetNewAction.DELETE_PRODUCT);
+    const shouldDisplayAddingAuction =
+    (action=== SetNewAction.ADD_AUCTION);
+    const shouldDisplayDeletingAuction =
+    (action === SetNewAction.DELETE_AUCTION);
+    const shouldDisplayUpdatingAuction =
+    (action === SetNewAction.UPDATE_AUCTION);
 
   return (
     <SalesAreaStyled>
@@ -77,9 +81,13 @@ const SalesArea = () => {
       <ProductFilter newValue={value} onChangeFilter={handleChange} />
       {shouldDisplayProducts && <Products items={productsExamples} />}
       {shouldDisplayAuctions && <Auctions items={auctionsExamples} />}
-      <RouteLink to={APP_PAGE.PRODUCT}>
-        <Button title="Panel produktu" />
-      </RouteLink>
+      <AuctionFilter newValue={action} onChangeFilter={actionHandleChange} />
+      {shouldDisplayAdding && <AddProduct/>}
+    {shouldDisplayDeleting && <DeleteProduct/>}
+      {shouldDisplayUpdating && <UpdateProduct/>}
+      {shouldDisplayAddingAuction && <AddAuction/>}
+      {shouldDisplayUpdatingAuction && <UpdateAuction/>}
+      {shouldDisplayDeletingAuction && <DeleteAuction/>}
       <RouteLink to={APP_PAGE.HOME}>
         <Button title="Powrót do strony głównej" />
       </RouteLink>

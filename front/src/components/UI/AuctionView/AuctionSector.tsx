@@ -6,7 +6,8 @@ interface AuctionSectorProps {
   items: AuctionProps[];
 }
 
-const Auctions = (props: AuctionSectorProps) => {
+
+const Auctions = (props: AuctionSectorProps,) => {
   return (
     <div>
       <p>Aukcje</p>
@@ -14,9 +15,8 @@ const Auctions = (props: AuctionSectorProps) => {
         {props.items.map((auction: AuctionProps) => (
           <AuctionBlock
             key={auction.key}
-            siteId={auction.siteId}
-            title={auction.title}
-            imgSrc={auction.imgSrc}
+            name={auction.name}
+            products={auction.products}
           />
         ))}
       </AuctionViewList>

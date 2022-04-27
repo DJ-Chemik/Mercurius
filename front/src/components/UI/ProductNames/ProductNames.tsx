@@ -1,25 +1,28 @@
 import { FieldsetStyledWrapper, Information, StyledInput } from "./ProductNames.styled"
+import { useRef } from "react"
 
-const ProductNames = () => {
+export const ProductNames = (props: any) => {
+  const productInputRef = useRef(null);
+
   return (
     <FieldsetStyledWrapper >
       <Information>
         Nazwa produktu:
       </Information>
       <StyledInput>
-        <input type="text" id="fname" name="fname" />
+        <input type="text" id="fname" name="fname" defaultValue={props.name} ref={productInputRef} />
       </StyledInput>
       <Information>
         Opis produktu:
       </Information>
       <StyledInput>
-        <textarea name="texarea"></textarea>
+        <input type="text" id="fname" name="fname" defaultValue={props.description}/>
       </StyledInput>
       <Information>
         Nazwa kategorii:
       </Information>
       <StyledInput>
-        <input type="text" id="fname" name="fname" />
+        <input type="text" id="fname" name="fname" defaultValue={props.category}/>
       </StyledInput>
       <Information>
         Nazwa kategorii w serwisie:

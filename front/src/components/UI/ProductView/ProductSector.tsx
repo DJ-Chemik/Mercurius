@@ -14,8 +14,11 @@ const Products = (props: ProductSectorProps) => {
         {props.items.map((company: ProductProps) => (
           <ProductBlock
             key={company.key}
-            title={company.title}
-            imgSrc={company.imgSrc}
+            name={company.name}
+            description={company.description}
+            category={company.category}
+            amount={company.amount}
+            price={company.price}
           />
         ))}
       </ProductViewList>
