@@ -1,16 +1,17 @@
 import React from "react";
-import {validateName} from "./Utils";
 import {AuctionSite} from "./AuctionSitesManagement";
 
 interface Props {
-  setAuctionsSites: React.Dispatch<React.SetStateAction<AuctionSite[]>>;
-  auctionsSites: AuctionSite[];
-  setCurrentName: React.Dispatch<React.SetStateAction<string>>,
+  setAuctionsSites: Function,
+  changeInput: Function,
   currentName: string,
+  validation: Function,
+
 }
 
 
 const AuctionSitesAddition = (props: Props) => {
+
 
   const addElement = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -19,29 +20,30 @@ const AuctionSitesAddition = (props: Props) => {
       name: props.currentName
     }
 
-    if (validateName(props.auctionsSites, newAuction)) {
-      props.setAuctionsSites([...props.auctionsSites, newAuction])
+    if (props.validation(newAuction)) {
+      props.setAuctionsSites(newAuction)
     } else {
       alert("Wartość nie może być pusta ani się powtarzać")
     }
 
-    props.setCurrentName("")
+    props.changeInput("")
   }
 
   const updateCurrentName = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
-    props.setCurrentName(e.target.value)
+    props.changeInput(e.target.value)
   }
 
   return (
       <div>
         <form onSubmit={addElement}>
           <label> Nazwa portalu </label>
-          <input type={"text"}
-                 name={""}
-                 placeholder={""}
-                 value={props.currentName}
-                 onChange={updateCurrentName}
+          <input
+              type={"text"}
+              name={""}
+              placeholder={""}
+              value={props.currentName}
+              onChange={updateCurrentName}
           />
           <button type={"submit"}>Dodaj</button>
         </form>

@@ -1,5 +1,4 @@
 import React from "react";
-import {deleteAucitonSite} from "./Utils";
 import {AuctionSite} from "./AuctionSitesManagement";
 
 export interface AuctionSitesProps {
@@ -9,23 +8,29 @@ export interface AuctionSitesProps {
 
 const AuctionSitesList = (props: AuctionSitesProps) => {
 
-  const confirmedDeletion = (auctionSiteName: string) =>{
+  const confirmDeletion = (auctionSiteName: string) => {
     return window.confirm(`Na pewno chcesz usunąć stronę aukcyjną o nazwie "${auctionSiteName}" oraz wszystkie dane z nią powiązane?`)
+  }
+
+  const deleteAucitonSite = (auctionSites: AuctionSite[], auctionSiteName: string) => {
+    return [...auctionSites.filter((element: AuctionSite) => {
+      return element.name !== auctionSiteName
+    })]
   }
 
   const handleDeletion = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     const auctionSiteName = e.currentTarget.value
 
-    if (confirmedDeletion(auctionSiteName)){
-      const deletionResult = deleteAucitonSite(props.auctionsSites,  auctionSiteName)
+    if (confirmDeletion(auctionSiteName)) {
+      const deletionResult = deleteAucitonSite(props.auctionsSites, auctionSiteName)
       props.setAuctionsSites([...deletionResult])
     }
   }
 
   return (
       <ul>
-        {props.auctionsSites.map((item: AuctionSite) => {
+        {props.auctionsSites.map((item) => {
               return (
                   <li key={item.name}>
                     {item.name}
