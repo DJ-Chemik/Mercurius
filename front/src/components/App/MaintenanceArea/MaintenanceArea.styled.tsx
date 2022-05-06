@@ -10,22 +10,23 @@ export const MaintenanceAreaStyled = styled.div`
   justify-content: normal;
   font-size: calc(10px + 2vmin);
   color: white;
-`
+`;
 
 export const MaintenanceAreaHeader = styled.h2`
   height: auto;
   margin: 10px;
-`
+`;
 
 export const MaintenanceAreaTitle = styled.h3`
   height: auto;
   margin: 10px;
-`
+`;
 
 export const MaintenanceAreaContent = styled.div`
-  width: 20%;
+  width: 50%;
   height: 70%;
   text-align: center;
   padding: 10px;
   font-size: 28px;
-`
+  float: right;
+`;

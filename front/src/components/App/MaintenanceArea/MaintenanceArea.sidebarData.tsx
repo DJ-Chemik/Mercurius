@@ -4,6 +4,7 @@ import CategoryIcon from "@mui/icons-material/Category";
 import RemoveShoppingCartIcon from "@mui/icons-material/RemoveShoppingCart";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import InventoryIcon from "@mui/icons-material/Inventory";
 
 export enum ROUTES {
   HOME = "",
@@ -12,6 +13,7 @@ export enum ROUTES {
   CLIENTS = "/clients",
   RETURNS = "/returns",
   DISCOUNTS = "/discounts",
+  CATEGORIES = "/categories",
 }
 
 export enum TITLES {
@@ -21,6 +23,7 @@ export enum TITLES {
   CLIENTS = "Klienci",
   RETURNS = "Zwroty",
   DISCOUNTS = "Rabaty",
+  CATEGORIES = "Drzewo kategorii",
 }
 
 export enum CONTENT {
@@ -29,6 +32,7 @@ export enum CONTENT {
   CLIENTS = "RODO MAMY BYCZQ 🤯",
   RETURNS = "Aktualnie nie mamy zwrotów! Hurra! 😃",
   DISCOUNTS = "Rabatów się zachciało hurr durr 🤬",
+  CATEGORIES = "Drzewo kategorii",
 }
 
 export interface MaintenanceAreaSidebarInterface {
@@ -40,7 +44,7 @@ export interface MaintenanceAreaSidebarInterface {
 export const sidebarData: MaintenanceAreaSidebarInterface[] = [
   {
     title: "Produkty",
-    icon: <CategoryIcon />,
+    icon: <InventoryIcon />,
     link: ROUTES.PRODUCTS,
   },
   {
@@ -62,6 +66,11 @@ export const sidebarData: MaintenanceAreaSidebarInterface[] = [
     title: "Rabaty",
     icon: <LocalOfferIcon />,
     link: ROUTES.DISCOUNTS,
+  },
+  {
+    title: "Drzewo kategorii",
+    icon: <CategoryIcon />,
+    link: ROUTES.CATEGORIES,
   },
   {
     title: "Powrót",

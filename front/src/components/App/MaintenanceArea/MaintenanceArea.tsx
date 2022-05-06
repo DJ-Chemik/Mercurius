@@ -14,6 +14,7 @@ import {
   TITLES,
   CONTENT,
 } from "./MaintenanceArea.sidebarData";
+import CategoryTree from "./MaintenanceAreaCategoryTree";
 
 const MaintenanceArea = () => {
   const sidebarSubpage = window.location.pathname.split("maintenance").pop();
@@ -32,6 +33,8 @@ const MaintenanceArea = () => {
         return TITLES.RETURNS;
       case ROUTES.DISCOUNTS:
         return TITLES.DISCOUNTS;
+      case ROUTES.CATEGORIES:
+        return TITLES.CATEGORIES;
     }
   };
 
@@ -47,6 +50,8 @@ const MaintenanceArea = () => {
         return CONTENT.RETURNS;
       case ROUTES.DISCOUNTS:
         return CONTENT.DISCOUNTS;
+      case ROUTES.CATEGORIES:
+        return CONTENT.CATEGORIES;
     }
   };
 
@@ -59,6 +64,12 @@ const MaintenanceArea = () => {
             <RouteLink to={APP_PAGE.PRODUCT}>
               <Button title="Dodaj produkt"></Button>
             </RouteLink>
+          </MaintenanceAreaContent>
+        );
+      case ROUTES.CATEGORIES:
+        return (
+          <MaintenanceAreaContent>
+            <CategoryTree />
           </MaintenanceAreaContent>
         );
       default:

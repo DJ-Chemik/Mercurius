@@ -31,3 +31,30 @@ model AuctionSite {
   user    User?    @relation(fields: [userId], references: [id])
   userId  Int?
 }
+
+model CategoryTree {
+  id  Int @default(autoincrement()) @id
+  name String @unique
+  position Int @unique
+  subcategory CategoryTreeSubcategory[]
+  subcategoryItem CategoryTreeSubcategoryItem[]
+}
+
+model CategoryTreeSubcategory {
+  id  Int @default(autoincrement()) @id
+  name String
+  position Int
+  parentId Int
+  parent CategoryTree @relation(fields: [parentId], references: [id])
+  children CategoryTreeSubcategoryItem[]
+}
+
+model CategoryTreeSubcategoryItem {
+  id  Int @default(autoincrement()) @id
+  name String
+  position Int
+  subcategoryId Int
+  categoryId Int
+  subcategory CategoryTreeSubcategory @relation(fields: [subcategoryId], references: [id])
+  category CategoryTree @relation(fields: [categoryId], references: [id])
+}
