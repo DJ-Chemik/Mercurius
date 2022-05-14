@@ -1,13 +1,13 @@
 import { Information, StyledInput, FirstCol } from "./ProductPricesFirstCol.styled"
 
-const ProductPricesFirstCol = () => {
+const ProductPricesFirstCol = (props: { amount: number} ) => {
   return (
       <FirstCol>
         <Information>
           Liczba dostęnych sztuk:
         </Information>
         <StyledInput>
-          <input type="number" id="fname" name="fname" />
+          <input type="number" id="fname" name="fname" defaultValue={props.amount}/>
         </StyledInput>
         <Information>
           Czy produkt jest już opublikowany:

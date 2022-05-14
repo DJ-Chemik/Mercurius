@@ -2,11 +2,16 @@ import { FieldsetStyledWrapper } from "./ProductPrices.styled"
 import ProductPricesFirstCol from "../../UI/ProductPricesFirstCol/ProductPricesFirstCol";
 import ProductPricesSecondCol from "../../UI/ProductPricesSecondCol/ProductPricesSecondCol";
 
-const ProductPrices = () => {
+interface ProductValues{
+  amount: number,
+  price: number
+}
+
+const ProductPrices = (props: ProductValues) => {
   return (
     <FieldsetStyledWrapper>
-      <ProductPricesFirstCol />
-      <ProductPricesSecondCol />
+      <ProductPricesFirstCol amount={props.amount}/>
+      <ProductPricesSecondCol price={props.price}/>
     </FieldsetStyledWrapper>
   )
 }

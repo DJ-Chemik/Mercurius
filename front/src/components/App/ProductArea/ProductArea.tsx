@@ -4,16 +4,42 @@ import ProductPrices from "../../UI/ProductPrices/ProductPrices";
 import Button from "../../UI/Button/Button";
 import RouteLink from "../../UI/RouteLink/RouteLink.styled";
 import { APP_PAGE } from "../App";
-import { ProductAreaStyled, Container, Send, FirstRow } from "./ProductArea.styled";
+import {
+  ProductAreaStyled,
+  Container,
+  Send,
+  FirstRow,
+} from "./ProductArea.styled";
 
-const ProductArea = () => {
+interface ProductsProps {
+  location: {
+    state: {
+      name: string;
+      description: string;
+      category: string;
+      amount: number;
+      price: number;
+    };
+  };
+}
+
+const ProductArea = (props: ProductsProps) => {
+  let name = props.location.state.name;
+  let description = props.location.state.description;
+  let category = props.location.state.category;
+  let amount = props.location.state.amount;
+  let price = props.location.state.price;
   return (
     <ProductAreaStyled>
       <h1>Product Area</h1>
       <Container>
         <FirstRow>
-          <ProductNames />
-          <ProductPrices />
+          <ProductNames
+            name={name}
+            description={description}
+            category={category}
+          />
+          <ProductPrices amount={amount} price={price} />
         </FirstRow>
         <ProductDates />
         <Send>
@@ -27,7 +53,7 @@ const ProductArea = () => {
         <Button title="Powrót do strony głównej" />
       </RouteLink>
     </ProductAreaStyled>
-  )
-}
+  );
+};
 
 export default ProductArea;

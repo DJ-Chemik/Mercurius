@@ -1,46 +1,54 @@
-import { FieldsetStyledWrapper, Information, StyledInput } from "./ProductNames.styled"
+import {
+  FieldsetStyledWrapper,
+  Information,
+  StyledInput,
+} from "./ProductNames.styled";
 
-const ProductNames = () => {
+interface ProductDescription {
+  name: string;
+  description: string;
+  category: string;
+}
+
+export const ProductNames = (props: ProductDescription) => {
   return (
-    <FieldsetStyledWrapper >
-      <Information>
-        Nazwa produktu:
-      </Information>
+    <FieldsetStyledWrapper>
+      <Information>Nazwa produktu:</Information>
+      <StyledInput>
+        <input type="text" id="fname" name="fname" defaultValue={props.name} />
+      </StyledInput>
+      <Information>Opis produktu:</Information>
+      <StyledInput>
+        <input
+          type="text"
+          id="fname"
+          name="fname"
+          defaultValue={props.description}
+        />
+      </StyledInput>
+      <Information>Nazwa kategorii:</Information>
+      <StyledInput>
+        <input
+          type="text"
+          id="fname"
+          name="fname"
+          defaultValue={props.category}
+        />
+      </StyledInput>
+      <Information>Nazwa kategorii w serwisie:</Information>
       <StyledInput>
         <input type="text" id="fname" name="fname" />
       </StyledInput>
-      <Information>
-        Opis produktu:
-      </Information>
-      <StyledInput>
-        <textarea name="texarea"></textarea>
-      </StyledInput>
-      <Information>
-        Nazwa kategorii:
-      </Information>
+      <Information>Nazwa kategorii w programie Mercurius:</Information>
       <StyledInput>
         <input type="text" id="fname" name="fname" />
       </StyledInput>
-      <Information>
-        Nazwa kategorii w serwisie:
-      </Information>
-      <StyledInput>
-        <input type="text" id="fname" name="fname" />
-      </StyledInput>
-      <Information>
-        Nazwa kategorii w programie Mercurius:
-      </Information>
-      <StyledInput>
-        <input type="text" id="fname" name="fname" />
-      </StyledInput>
-      <Information>
-        Nazwa konta na jakim jest wystawiony produkt:
-      </Information>
+      <Information>Nazwa konta na jakim jest wystawiony produkt:</Information>
       <StyledInput>
         <input type="text" id="fname" name="fname" />
       </StyledInput>
     </FieldsetStyledWrapper>
-  )
-}
+  );
+};
 
-export default ProductNames
+export default ProductNames;

@@ -20,6 +20,10 @@ model User {
 model Product {
   id    Int     @default(autoincrement()) @id
   name  String
+  description String 
+  category String
+  amount Int
+  price Float
   auctionSites AuctionSite[]
 }
 
