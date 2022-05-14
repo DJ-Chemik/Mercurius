@@ -7,6 +7,7 @@ import {
 } from "./AuctionInput.styled";
 import { isEmpty } from "../../App/SalesArea/SalesArea";
 import { useState } from "react";
+import { address } from "../../App/SalesArea/SalesArea";
 
 const DeleteProduct = () => {
   const [formInputsValidity, setFormInputsValidity] = useState({
@@ -25,7 +26,7 @@ const DeleteProduct = () => {
     });
 
     if (enteredIdIsValid) {
-      axios.delete("http://localhost:4000/products/" + enteredId, {});
+      axios.delete(address + "products/" + enteredId, {});
     }
   };
 

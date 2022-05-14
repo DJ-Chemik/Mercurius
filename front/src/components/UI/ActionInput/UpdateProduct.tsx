@@ -7,6 +7,7 @@ import {
 } from "./AuctionInput.styled";
 import { isEmpty } from "../../App/SalesArea/SalesArea";
 import { useState } from "react";
+import { address } from "../../App/SalesArea/SalesArea";
 
 const UpdateProduct = () => {
   const [formInputsValidity, setFormInputsValidity] = useState({
@@ -29,7 +30,7 @@ const UpdateProduct = () => {
     });
 
     if (enteredIdIsValid && enteredNameIsValid) {
-      axios.put("http://localhost:4000/products/" + enteredId, {
+      axios.put(address + "products/" + enteredId, {
         name: enteredName,
       });
     }

@@ -43,33 +43,31 @@ export class ProductsService {
       where: {
         id: productId,
       },
-      include: {auctionSites:true}
+      include: { auctionSites: true },
     });
   }
 
   async getAllProducts(): Promise<Product[]> {
     return this.prisma.product.findMany({
-      include: {auctionSites:true}
-    })
+      include: { auctionSites: true },
+    });
   }
-
-      
 
   async updateProduct(id: string, name: string): Promise<string | Product> {
-    try{
-    const productId = parseInt(id);
-    const productName = name;
-    return this.prisma.product.update({
-      where: {
-        id: productId,
-      },
-      data: {
-        name: productName,
-      },
-    });
-  } catch (error) {
-    return `Error during updating product by id: ${id}`;
-  }
+    try {
+      const productId = parseInt(id);
+      const productName = name;
+      return this.prisma.product.update({
+        where: {
+          id: productId,
+        },
+        data: {
+          name: productName,
+        },
+      });
+    } catch (error) {
+      return `Error during updating product by id: ${id}`;
+    }
   }
 
   async deleteProduct(id: string): Promise<string | Product> {

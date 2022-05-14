@@ -7,6 +7,7 @@ import {
 } from "./AuctionInput.styled";
 import { isEmpty } from "../../App/SalesArea/SalesArea";
 import { useState } from "react";
+import { address } from "../../App/SalesArea/SalesArea";
 
 const AddProduct = () => {
   const [formInputsValidity, setFormInputsValidity] = useState({
@@ -20,11 +21,11 @@ const AddProduct = () => {
   const addProductHandler = (event: any) => {
     event.preventDefault();
 
-    const enteredName = event.target.elements.name.value;
-    const enteredDescription = event.target.elements.description.value;
-    const enteredCategory = event.target.elements.category.value;
-    const enteredAmount = event.target.elements.amount.value;
-    const enteredPrice = event.target.elements.price.value;
+    const enteredName = event.target.name.value;
+    const enteredDescription = event.target.description.value;
+    const enteredCategory = event.target.category.value;
+    const enteredAmount = event.target.amount.value;
+    const enteredPrice = event.target.price.value;
 
     const enteredNameIsValid = !isEmpty(enteredName);
     const enteredDescriptionIsValid = !isEmpty(enteredDescription);
@@ -41,7 +42,7 @@ const AddProduct = () => {
     });
 
     if (enteredNameIsValid) {
-      axios.post("http://localhost:4000/products", {
+      axios.post(address + "products", {
         name: enteredName,
         description: enteredDescription,
         category: enteredCategory,

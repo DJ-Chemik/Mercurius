@@ -26,7 +26,7 @@ export class AuctionSiteController {
   }
 
   @Get(':id')
-  getAuctionSiteId(@Param('id') id: string) {
+  getAuctionSiteById(@Param('id') id: string) {
     return this.auctionSiteService.getAuctionSite(id);
   }
 
